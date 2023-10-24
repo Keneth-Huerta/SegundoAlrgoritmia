@@ -49,7 +49,6 @@ public class NumeroPar5 {
             // Preguntamos al usuario si quiere continuar
             System.out.println("¿Desea continuar? (s/n): ");
             String respuesta = inR.nextLine();
-
             // Si la respuesta es no, la variable de control se pone a false y el bucle se detiene
             if (respuesta.equals("n")) {
                 continuar = false;
