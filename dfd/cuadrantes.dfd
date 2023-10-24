@@ -1,0 +1,70 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+4
+1
+20
+' Coordenada (x,y) '
+5
+1
+3
+x,y
+7
+0
+1
+13
+(x=0 and y=0)
+7
+0
+1
+13
+(x>0 and y>0)
+7
+0
+1
+13
+(x<0 and y>0)
+7
+0
+1
+13
+(x<0 and y<0)
+7
+0
+1
+13
+(x>0 and y<0)
+13
+4
+1
+46
+'Las coordenadas están en el CUARTO CUADRANTE'
+13
+13
+4
+1
+46
+'Las coordenadas están en el TERCER CUADRANTE'
+13
+13
+4
+1
+47
+'Las coordenadas están en el SEGUNDO CUADRANTE'
+13
+13
+4
+1
+46
+'Las coordenadas estan en el PRIMER CUADRANTE'
+13
+13
+4
+1
+33
+'La coordenada esta en el origen'
+13
+1

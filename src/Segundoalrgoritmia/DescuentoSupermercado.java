@@ -10,8 +10,10 @@ public class DescuentoSupermercado {
         int importeCompra, numeroAleatorio;
         String colorPelota, repetir = "si";
         double descuento;
+        
         Scanner in = new Scanner(System.in);
         Scanner inR = new Scanner(System.in);
+        
         while (repetir.equalsIgnoreCase("si")) {
             // Leemos el importe de la compra
             System.out.println("Ingrese el importe de la compra: ");

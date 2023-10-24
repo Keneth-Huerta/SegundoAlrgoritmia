@@ -1,0 +1,60 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+6
+1
+7
+repetir
+4
+'si'
+9
+1
+12
+repetir='si'
+4
+1
+30
+'Dame 3 lados de un triangulo'
+5
+1
+8
+l1,l2,l3
+7
+0
+1
+26
+l1=l2 and l1= l3 and l2=l3
+7
+0
+1
+23
+l1=l2 or l1=l3 or l2=l3
+4
+1
+26
+'Es un triangulo escaleno'
+13
+4
+1
+26
+'Es un triangulo isóseles'
+13
+13
+4
+1
+29
+'Es un triangulo  Equilatero'
+13
+4
+1
+24
+'Quieres repetir si/no?'
+5
+1
+7
+repetir
+11
+1

@@ -1,0 +1,36 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+4
+1
+26
+' BIENVENIDO A MI PÁGINA '
+6
+1
+2
+cu
+1
+0
+9
+1
+9
+(cu < 10)
+6
+1
+2
+cu
+4
+cu+1
+4
+1
+20
+'Visitante No. ', cu
+11
+4
+1
+49
+'El dia de hoy, tu página tuvo: ', cu ,' visitas'
+1

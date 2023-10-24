@@ -1,0 +1,52 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+4
+1
+27
+'Escribe el angulo inicial'
+5
+1
+2
+ai
+9
+1
+5
+ai<45
+6
+1
+2
+ai
+4
+ai+1
+6
+3
+5
+cosai
+7
+cos(ai)
+5
+senai
+7
+sin(ai)
+5
+tanai
+19
+(sin(ai))/(cos(ai))
+4
+1
+35
+'El coseno de ', ai, ' es: ', cosai
+4
+1
+33
+'El seno de ', ai, ' es: ', senai
+4
+1
+36
+'La tangente de ', ai,' es: ', tanai
+11
+1

@@ -1,0 +1,56 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+6
+1
+4
+resp
+3
+'S'
+9
+1
+12
+(resp = 'S')
+5
+1
+6
+sueldo
+6
+3
+7
+basicos
+10
+sueldo*0.5
+10
+personales
+10
+sueldo*0.3
+6
+ahorro
+10
+sueldo*0.2
+4
+1
+29
+' Gastos basicos $ ', basicos
+4
+1
+35
+' Gastos personales $ ', personales
+4
+1
+20
+' Ahorro $ ', ahorro
+4
+1
+21
+' Otra entrada S/ N '
+5
+1
+4
+resp
+11
+1

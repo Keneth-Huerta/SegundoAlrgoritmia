@@ -1,0 +1,33 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+4
+1
+46
+' Total de alumnos y total de inasisitencias '
+5
+1
+12
+total, falta
+6
+2
+5
+total
+30
+(total-falta)*100/total       
+5
+falta
+15
+falta*100/total
+4
+1
+21
+total, '% asistencia'
+4
+1
+16
+falta, '% falta'
+1
