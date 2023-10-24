@@ -1,6 +1,9 @@
 package Segundoalrgoritmia;
+
 import java.util.Scanner;
+
 public class Trianguloe {
+
     public static void main(String[] args) {
         int l1, l2, l3;
         String repetir = "si";
@@ -15,15 +18,14 @@ public class Trianguloe {
             l3 = in.nextInt();
             if (l1 == l2 && l2 == l3 && l1 == l3) {
                 System.out.print("Es un triangulo equilatero");
-            }
-            else if ((l1 == l2 && l2 != l3 && l1 != l3) || (l1 == l3 && l3 != l2 && l1 != l2)
-                    || (l2 == l3 && l2 != l1 && l3 != l1))
+            } else if ((l1 == l2 && l2 != l3 && l1 != l3) || (l1 == l3 && l3 != l2 && l1 != l2)
+                    || (l2 == l3 && l2 != l1 && l3 != l1)) {
                 System.out.println("Es un triangulo isoceles");
-            else {
+            } else {
                 System.out.println("Es un triangulo escaleno");
             }
             System.out.println("Quieres repetir? si/no");
-            repetir=inR.nextLine();
+            repetir = inR.nextLine();
         }
     }
 }

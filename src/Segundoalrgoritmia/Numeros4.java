@@ -1,10 +1,13 @@
 package Segundoalrgoritmia;
+
 import java.util.Scanner;
+
 public class Numeros4 {
+
     public static void main(String[] args) {
         int n1, n2, n3, n4, nma, nme, neto;
-        String repetir ;
-        repetir= "si";
+        String repetir;
+        repetir = "si";
         Scanner in = new Scanner(System.in);
         Scanner inR = new Scanner(System.in);
         while (repetir.equalsIgnoreCase("si")) {
@@ -45,8 +48,8 @@ public class Numeros4 {
             neto = (nma + nme);
             System.out.println("Y la suma de ambos es " + neto);
             System.out.println("Quieres repetir? si/no");
-        repetir=inR.nextLine();
+            repetir = inR.nextLine();
         }
-        
+
     }
 }
