@@ -11,7 +11,7 @@ public class NombresArreglo {
         for (int i = 0; i < nombres.length; i++) {
             System.out.print(i + 1 + ".-");
             nombres[i] = in.nextLine();
-
+            
         }
     }
 }
