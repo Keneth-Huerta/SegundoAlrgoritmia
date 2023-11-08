@@ -42,8 +42,8 @@ class NombresFrame extends JFrame {
 
 class NombresLamina extends JPanel {
 
-  private ArrayList<String> listNombres = new ArrayList<String>();
-  private ArrayList<Integer> listPromedios = new ArrayList<Integer>();
+  private ArrayList<String> listNombres = new ArrayList<>();
+  private ArrayList<Integer> listPromedios = new ArrayList<>();
 
   NombresLamina() {
     setLayout(new BorderLayout());
@@ -61,6 +61,7 @@ class NombresLamina extends JPanel {
     menuBar.add(menuA);
     menuA.addMenuListener(
       new MenuListener() {
+        @Override
         public void menuSelected(MenuEvent e) {
           milamina2.setVisible(true);
           milamina3.setVisible(false);
@@ -68,14 +69,17 @@ class NombresLamina extends JPanel {
           lamina2.setVisible(false);
         }
 
+        @Override
         public void menuCanceled(MenuEvent e) {}
 
+        @Override
         public void menuDeselected(MenuEvent e) {}
       }
     );
     menuBar.add(menuB);
     menuB.addMenuListener(
       new MenuListener() {
+        @Override
         public void menuSelected(MenuEvent e) {
           milamina2.setVisible(false);
           milamina3.setVisible(true);
@@ -85,18 +89,23 @@ class NombresLamina extends JPanel {
           add(milamina3, BorderLayout.CENTER);
         }
 
+        @Override
         public void menuCanceled(MenuEvent e) {}
 
+        @Override
         public void menuDeselected(MenuEvent e) {}
       }
     );
     menuBar.add(menuR);
     menuR.addMenuListener(
       new MenuListener() {
+        @Override
         public void menuCanceled(MenuEvent e) {}
 
+        @Override
         public void menuDeselected(MenuEvent e) {}
 
+        @Override
         public void menuSelected(MenuEvent e) {
           listNombres.removeAll(listNombres);
           listPromedios.removeAll(listPromedios);
@@ -114,92 +123,89 @@ class NombresLamina extends JPanel {
     JButton miboton1 = new JButton("Promedio");
     JButton miboton2 = new JButton("Buscar");
 
-    miboton.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          listNombres.add(mitexto.getText());
-          listPromedios.add(Integer.parseInt(mitexto2.getText()));
-          mitexto.setText("");
-          mitexto2.setText("");
-        }
-      }
-    );
+    miboton.addActionListener((ActionEvent e) -> {
+        listNombres.add(mitexto.getText());
+        listPromedios.add(Integer.valueOf(mitexto2.getText()));
+        mitexto.setText("");
+        mitexto2.setText("");
+    });
     mitexto2.addKeyListener(
       new KeyListener() {
+        @Override
         public void keyPressed(KeyEvent e) {
           if (e.getKeyCode() == 10) {
             listNombres.add(mitexto.getText());
-            listPromedios.add(Integer.parseInt(mitexto2.getText()));
+            listPromedios.add(Integer.valueOf(mitexto2.getText()));
             mitexto.setText("");
             mitexto2.setText("");
           }
         }
 
+        @Override
         public void keyReleased(KeyEvent e) {}
 
+        @Override
         public void keyTyped(KeyEvent e) {}
       }
     );
     mitexto.addKeyListener(
       new KeyListener() {
+        @Override
         public void keyPressed(KeyEvent e) {
           if (e.getKeyCode() == 10) {
             listNombres.add(mitexto.getText());
-            listPromedios.add(Integer.parseInt(mitexto2.getText()));
+            listPromedios.add(Integer.valueOf(mitexto2.getText()));
             mitexto.setText("");
             mitexto2.setText("");
           }
         }
 
+        @Override
         public void keyReleased(KeyEvent e) {}
 
+        @Override
         public void keyTyped(KeyEvent e) {}
       }
     );
     milamina2.addKeyListener(
       new KeyListener() {
+        @Override
         public void keyPressed(KeyEvent e) {
           if (e.getKeyCode() == 10) {
             listNombres.add(mitexto.getText());
-            listPromedios.add(Integer.parseInt(mitexto2.getText()));
+            listPromedios.add(Integer.valueOf(mitexto2.getText()));
             mitexto.setText("");
             mitexto2.setText("");
           }
         }
 
+        @Override
         public void keyReleased(KeyEvent e) {}
 
+        @Override
         public void keyTyped(KeyEvent e) {}
       }
     );
     JLabel texto3 = new JLabel();
 
-    miboton1.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          int promedios = 0;
-          for (int promedio : listPromedios) {
+    miboton1.addActionListener((ActionEvent e) -> {
+        int promedios = 0;
+        for (int promedio : listPromedios) {
             promedios += promedio;
-          }
-          texto3.setText(
-            "El promedio de los alumnos es: " +
-            String.valueOf(promedios / listPromedios.size())
-          );
         }
-      }
-    );
-    miboton2.addActionListener(
-      new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          for (String string : listNombres) {
+        texto3.setText(
+                "El promedio de los alumnos es: " +
+                        String.valueOf(promedios / listPromedios.size())
+        );
+    });
+    miboton2.addActionListener((ActionEvent e) -> {
+        for (String string : listNombres) {
             int index = string.indexOf(string);
             if (string.equalsIgnoreCase(textnom.getText())) {
-              textprom.setText(String.valueOf(listPromedios.get(index)));
+                textprom.setText(String.valueOf(listPromedios.get(index)));
             }
-          }
         }
-      }
-    );
+    });
 
     add(milamina3, BorderLayout.CENTER);
     milamina3.add(new JLabel("Buscar alumno: "));
