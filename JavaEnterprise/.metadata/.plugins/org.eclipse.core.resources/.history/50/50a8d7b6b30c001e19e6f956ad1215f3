@@ -1,0 +1,13 @@
+import java.util.Iterator;
+
+public class buclesCondicionales {
+
+	public static void main(String[] args) {
+
+		for (Iterator iterator = collection.iterator(); iterator.hasNext();) {
+			type type = (type) iterator.next();
+			
+		}
+	}
+
+}

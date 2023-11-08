@@ -1,0 +1,23 @@
+package usothreads;
+
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JFrame;
+
+public class UsoThreads {
+
+	public static void main(String[] args) {
+
+		JFrame marco=new MarcoRebote();
+		marco.setVisible(true);
+	}
+
+}
+class pelota{
+	
+	public void muevePelota(Rectangle2D limites) {
+	
+		x+=dx;
+		y+=d
+	}
+}

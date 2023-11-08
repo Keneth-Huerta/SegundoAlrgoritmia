@@ -1,0 +1,84 @@
+package serializacion;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class imagenBorrada {
+
+	public static void main(String[] args) {
+
+		imagen image = new imagen();
+		try {
+			ObjectOutputStream txt = new ObjectOutputStream(new FileOutputStream(
+					"C:\\Users\\kenet\\OneDrive\\Documentos\\Curso java 2023\\AccesoFicheros\\src\\serializacion\\imagen.txt"));
+			txt.writeObject(image.image());
+			txt.close();
+//			System.out.println(contador);
+
+			ObjectInputStream reImage = new ObjectInputStream(new FileInputStream(
+					"C:\\Users\\kenet\\OneDrive\\Documentos\\Curso java 2023\\AccesoFicheros\\src\\serializacion\\imagen.txt"));
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+//		creaFichero(reImage);
+	}
+
+	public static void creaFichero(int datosNuevoFichero[]) {
+
+		try {
+
+			FileOutputStream ficheroNuevo = new FileOutputStream(
+					"C:\\Users\\kenet\\OneDrive\\Documentos\\Curso java 2023\\AccesoFicheros\\src\\serializacion\\sofi2.jpg");
+			for (int i = 0; i < datosNuevoFichero.length; i++) {
+
+				ficheroNuevo.write(datosNuevoFichero[i]);
+			}
+			ficheroNuevo.close();
+		} catch (IOException e) {
+
+			System.out.println("El archivo no se encuentra");
+			e.printStackTrace();
+		}
+	}
+
+}
+
+class imagen implements Serializable {
+	private static final long serialVersionUID = 1182034197299601176L;
+	private int[] bytes = new int[35926];
+	private int contador = 0;
+
+	public imagen() {
+		try {
+
+			FileInputStream imagen = new FileInputStream(
+					"C:\\Users\\kenet\\OneDrive\\Documentos\\Curso java 2023\\AccesoFicheros\\src\\serializacion\\sofi.jpg");
+			boolean finalAr = false;
+			while (!finalAr) {
+
+				byte read = (byte) imagen.read();
+				if (read != -1) {
+
+					bytes[contador] = read;
+				} else
+					finalAr = true;
+				contador++;
+			}
+			imagen.close();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public int[] image() {
+
+		return bytes;
+	}
+}

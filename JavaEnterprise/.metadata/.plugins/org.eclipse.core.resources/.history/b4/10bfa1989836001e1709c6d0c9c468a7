@@ -1,0 +1,30 @@
+package conectaBD;
+
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class ConectaPruebas {
+
+	public static void main(String[] args) {
+
+		try {
+
+			// 1. CREAR CONEXIÓN
+			Connection miConexion = DriverManager.getConnection("jdbc:mysql;//loclhost:3306/curso_sql", "root", "");
+			// 2. CREAR OBJETO STATEMENT
+			Statement miStatement = (Statement) miConexion.createStatement();
+			// 3. EJECUTAR SQL
+			ResultSet miResultset = ((java.sql.Statement) miStatement).executeQuery("SELECT * FROM PRODUCTS");
+			//4 RECORRER EL RESULSET
+			for
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+}

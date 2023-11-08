@@ -1,0 +1,11 @@
+
+public class Entrada_Numeros {
+
+	public static void main(String[] args) {
+
+//		double x=10000.0;
+//		System.out.printf("%1.100f",x/3);
+		String num
+	}
+
+}

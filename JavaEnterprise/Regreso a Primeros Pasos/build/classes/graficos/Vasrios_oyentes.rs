@@ -1,0 +1,6 @@
+graficos.Lamina_Principal
+graficos.Lamina_Principal$OyenteNuevo
+graficos.Marco_Principal
+graficos.Marco_Emergente$CierraTodos
+graficos.Vasrios_oyentes
+graficos.Marco_Emergente

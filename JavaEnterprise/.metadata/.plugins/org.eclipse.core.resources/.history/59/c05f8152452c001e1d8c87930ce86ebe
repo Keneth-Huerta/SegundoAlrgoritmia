@@ -1,0 +1,16 @@
+package leyendo_escribiendo_bytes;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class LecturaEscritura {
+
+	public static void main(String[] args) {
+		try {
+			type name = new type();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

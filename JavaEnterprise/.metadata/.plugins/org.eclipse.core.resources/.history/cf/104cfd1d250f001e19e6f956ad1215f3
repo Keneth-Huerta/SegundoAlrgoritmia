@@ -1,0 +1,10 @@
+
+public class Entrada_ejemplo1 {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Sacnner(System.in);
+		
+	}
+
+}

@@ -1,0 +1,19 @@
+package keneth.sockets;
+
+import javax.swing.JFrame;
+
+public class Cliente {
+
+	public static void main(String[] args) {
+
+		MarcoCliente mimarco = new MarcoCliente();
+mimarco.setVisible;
+	}
+}
+class MarcoCliente extends JFrame{
+	
+	public MarcoCliente() {
+
+		
+	}
+}

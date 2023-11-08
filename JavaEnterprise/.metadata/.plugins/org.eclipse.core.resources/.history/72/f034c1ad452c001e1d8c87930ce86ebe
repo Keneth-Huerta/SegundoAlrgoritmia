@@ -1,0 +1,24 @@
+package leyendo_escribiendo_bytes;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class LecturaEscritura {
+
+	public static void main(String[] args) {
+		try {
+			FileInputStream archivoLectura = new FileInputStream("C:\\Users\\kenet\\OneDrive\\Documentos\\2IM2-HUERTA-GALINDO-KENETH-ISSAC-CECyT-3\\Personal\\Renata Sofia Delgado Reyes\\357000937_685530390064408_2854505949680242201_n.jpg");
+			boolean finalAr=false;
+			while (!finalAr) {
+				int byteEntrada=archivoLectura.read();
+				if (finalAr) {
+					
+				}
+				archivoLectura.close();
+			}
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+	}
+
+}

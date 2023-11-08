@@ -1,0 +1,10 @@
+package keneth.sockets;
+
+public class Cliente {
+
+	public static void main(String[] args) {
+
+		MarcoCliente mimarco = new MarcoCliente();
+
+	}
+}

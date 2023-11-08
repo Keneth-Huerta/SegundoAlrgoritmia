@@ -1,0 +1,3 @@
+graficos.CambioEstado
+graficos.CambiaEstado
+graficos.MarcoCambioEstado

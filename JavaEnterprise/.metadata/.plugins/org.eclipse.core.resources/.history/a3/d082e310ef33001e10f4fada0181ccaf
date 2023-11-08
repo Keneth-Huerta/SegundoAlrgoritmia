@@ -1,0 +1,63 @@
+package keneth.sockets;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Cliente {
+
+	public static void main(String[] args) {
+
+		MarcoCliente mimarco = new MarcoCliente();
+		mimarco.setVisible(true);
+	}
+}
+
+class MarcoCliente extends JFrame {
+
+	public MarcoCliente() {
+
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(600, 300, 280, 350);
+		LaminaMarcoCliente milamina = new LaminaMarcoCliente();
+		add(milamina);
+		setTitle("Cliente");
+	}
+}
+
+class LaminaMarcoCliente extends JPanel {
+
+	public LaminaMarcoCliente() {
+
+		JLabel texto = new JLabel("CLIENTE");
+		JTextField cuadorT = new JTextField(20);
+		JButton boton = new JButton("Enviar");
+		add(texto);
+		add(cuadorT);
+		add(boton);
+		boton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+
+				String mensaje = cuadorT.getText();
+				try {
+					Socket misocket = new Socket("192.168.0.14", 3535);
+					DataOutputStream flujoSalida = new DataOutputStream(misocket.getOutputStream());
+					
+				} catch (IOException e1) {
+
+					e1.printStackTrace();
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
+	}
+}

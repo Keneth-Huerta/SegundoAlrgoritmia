@@ -1,0 +1,4 @@
+graficos.MarcoPruebaArea
+graficos.MarcoPruebaArea$1
+graficos.PruebaArea
+graficos.MarcoPruebaArea$2

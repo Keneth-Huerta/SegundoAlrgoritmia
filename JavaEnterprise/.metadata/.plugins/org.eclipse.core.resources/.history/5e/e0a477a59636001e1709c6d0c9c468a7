@@ -1,0 +1,12 @@
+package conectaBD;
+
+import java.sql.Connection;
+
+public class ConectaPruebas {
+
+	public static void main(String[] args) {
+
+		Connection conecta;
+	}
+
+}
