@@ -2,10 +2,10 @@ package Segundoalrgoritmia;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -124,10 +124,10 @@ class NombresLamina extends JPanel {
     JButton miboton2 = new JButton("Buscar");
 
     miboton.addActionListener((ActionEvent e) -> {
-        listNombres.add(mitexto.getText());
-        listPromedios.add(Integer.valueOf(mitexto2.getText()));
-        mitexto.setText("");
-        mitexto2.setText("");
+      listNombres.add(mitexto.getText());
+      listPromedios.add(Integer.valueOf(mitexto2.getText()));
+      mitexto.setText("");
+      mitexto2.setText("");
     });
     mitexto2.addKeyListener(
       new KeyListener() {
@@ -189,22 +189,22 @@ class NombresLamina extends JPanel {
     JLabel texto3 = new JLabel();
 
     miboton1.addActionListener((ActionEvent e) -> {
-        int promedios = 0;
-        for (int promedio : listPromedios) {
-            promedios += promedio;
-        }
-        texto3.setText(
-                "El promedio de los alumnos es: " +
-                        String.valueOf(promedios / listPromedios.size())
-        );
+      int promedios = 0;
+      for (int promedio : listPromedios) {
+        promedios += promedio;
+      }
+      texto3.setText(
+        "El promedio de los alumnos es: " +
+        String.valueOf(promedios / listPromedios.size())
+      );
     });
     miboton2.addActionListener((ActionEvent e) -> {
-        for (String string : listNombres) {
-            int index = string.indexOf(string);
-            if (string.equalsIgnoreCase(textnom.getText())) {
-                textprom.setText(String.valueOf(listPromedios.get(index)));
-            }
+      for (String string : listNombres) {
+        int index = string.indexOf(string);
+        if (string.equalsIgnoreCase(textnom.getText())) {
+          textprom.setText(String.valueOf(listPromedios.get(index)));
         }
+      }
     });
 
     add(milamina3, BorderLayout.CENTER);
