@@ -40,7 +40,7 @@ public class NombresArreglo {
             if (verd == false) {
                 System.out.println("la persona no existe");
             }
-            System.out.println("Quieres repetir?");
+            System.out.println("Quieres repetir? s/n");
             Scanner inRR = new Scanner(System.in);
             repetir = inRR.nextLine();
 
