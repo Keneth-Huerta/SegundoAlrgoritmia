@@ -1,7 +1,7 @@
 
 package Segundoalrgoritmia;
 import java.util.Scanner;
-public class PapeleriaLuisito {
+public class Papelerialuisito {
     public static void main(String[] args) {
         int la, go, cua, cla, cgo, ccua, mt;
         Scanner in = new Scanner (System.in);

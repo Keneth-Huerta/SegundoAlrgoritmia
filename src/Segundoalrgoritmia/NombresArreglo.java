@@ -34,6 +34,7 @@ public class NombresArreglo {
                 if (nombre.equalsIgnoreCase(alumnos[i])) {
                     System.out.println("El promedio de " + alumnos[i] + " es: " + promedios[i]);
                     verd = true;
+                    break;
                 }
 
             }

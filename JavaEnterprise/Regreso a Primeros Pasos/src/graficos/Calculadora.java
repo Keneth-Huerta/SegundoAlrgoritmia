@@ -24,7 +24,7 @@ class MarcoCalc extends JFrame {
 
 		setTitle("Calculadora");
 		setBounds(500, 300, 450, 300);
-		setIconImage(new ImageIcon(getClass().getResource("Cubo-EnfocadoL.png")).getImage());
+	//	setIconImage(new ImageIcon(getClass().getResource("Cubo-EnfocadoL.png")).getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(new LaminaCalc());
 //		pack();
