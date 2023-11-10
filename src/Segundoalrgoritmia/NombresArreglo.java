@@ -37,7 +37,7 @@ public class NombresArreglo {
                 }
 
             }
-            if (verd == false) {
+            if (verd) {
                 System.out.println("la persona no existe");
             }
             System.out.println("Quieres repetir? s/n");
