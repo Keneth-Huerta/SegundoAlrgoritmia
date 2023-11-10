@@ -18,11 +18,11 @@ public class NombresArreglo {
             promedios[i] = inR.nextFloat();
 
         }
-        // for (int i = 0; i < 5; i++) {
-        // promedio += promedios[i];
-        // }
-        // promedio /= promedios.length;
-        // System.out.println("\nel promedio es: " + promedio);
+        for (int i = 0; i < 5; i++) {
+            promedio += promedios[i];
+        }
+        promedio /= promedios.length;
+        System.out.println("\nel promedio es: " + promedio);
         String repetir = "s";
         while (repetir.equalsIgnoreCase("s")) {
 
