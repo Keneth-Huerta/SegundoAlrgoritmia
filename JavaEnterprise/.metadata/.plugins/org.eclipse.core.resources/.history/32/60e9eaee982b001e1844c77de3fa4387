@@ -1,0 +1,55 @@
+package leyendo;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class AccesoFichero {
+
+	public static void main(String[] args) {
+
+		LeerFichero accediendo = new LeerFichero();
+		accediendo.lee();
+		FrameFichero mimarco = new FrameFichero();
+		mimarco.setVisible(true);
+	}
+
+}
+
+class LeerFichero {
+	private char letra;
+
+	public char letra
+
+	public void lee() {
+		try {
+			FileReader entrada = new FileReader("C:/Users/kenet/OneDrive/Escritorio/hola.txt");
+			int c = 0;
+			for (int i = 0; i < array.length; i++) {
+
+				c = entrada.read();
+				letra = (char) c;
+				System.out.print(letra);
+			}
+			{
+			}
+			entrada.close();
+		} catch (IOException e) {
+
+			System.out.println("No se ha encontrado el archivo");
+			e.printStackTrace();
+		}
+	}
+}
+
+class FrameFichero extends JFrame {
+
+	public FrameFichero() {
+
+		setBounds(300, 300, 300, 300);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		JLabel label = new JLabel(letra);
+	}
+}

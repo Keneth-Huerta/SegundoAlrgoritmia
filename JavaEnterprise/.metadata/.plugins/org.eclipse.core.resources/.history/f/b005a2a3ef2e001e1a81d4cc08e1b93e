@@ -1,0 +1,20 @@
+package clases_propias;
+
+public class UsoPareja {
+
+	public static void main(String[] args) {
+
+		Pareja<String> una = new Pareja<String>();
+		una
+	}
+
+}
+
+class Persona {
+	private String nombre;
+
+	public Persona(String nombre) {
+
+		this.nombre = nombre;
+	}
+}

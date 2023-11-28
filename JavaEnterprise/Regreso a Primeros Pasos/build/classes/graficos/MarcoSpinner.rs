@@ -1,0 +1,5 @@
+graficos.LaminaSpinner
+graficos.FrameSpinner
+graficos.LaminaSpinner$AccionSpinner
+graficos.MarcoSpinner
+graficos.LaminaSpinner$1

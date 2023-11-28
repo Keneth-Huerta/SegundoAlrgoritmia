@@ -1,0 +1,4 @@
+graficos.MarcoSliders
+graficos.LaminaSliders
+graficos.FrameSliders
+graficos.LaminaSliders$AccionSlider

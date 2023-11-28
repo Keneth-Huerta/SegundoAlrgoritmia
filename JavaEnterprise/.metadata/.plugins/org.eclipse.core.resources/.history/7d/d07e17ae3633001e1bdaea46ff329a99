@@ -1,0 +1,16 @@
+package usothreads;
+
+public class SincronizandoHilos {
+
+	public static void main(String[] args) {
+		
+		
+	}
+}
+class HilosVarios extends Thread{
+	
+	public void run() {
+		
+		
+	}
+}

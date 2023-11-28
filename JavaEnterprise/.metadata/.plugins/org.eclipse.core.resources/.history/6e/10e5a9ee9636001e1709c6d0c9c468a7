@@ -1,0 +1,19 @@
+package conectaBD;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConectaPruebas {
+
+	public static void main(String[] args) {
+
+		try {
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql;//loclhost:3306/curso_sql", "root", "");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

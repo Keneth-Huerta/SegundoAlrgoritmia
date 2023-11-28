@@ -1,0 +1,17 @@
+package usothreads;
+
+public class BancoSincronizar {
+
+	public static void main(String[] args) {
+
+	}
+
+}
+
+class Banco {
+	private final double[] cuentas;
+
+	public Banco() {
+
+	}
+}

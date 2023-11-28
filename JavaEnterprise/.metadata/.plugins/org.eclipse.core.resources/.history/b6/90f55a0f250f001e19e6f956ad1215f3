@@ -1,0 +1,9 @@
+
+public class Entrada_ejemplo1 {
+
+	public static void main(String[] args) {
+
+		Sacnner in = new Sacnner(System.in);
+	}
+
+}

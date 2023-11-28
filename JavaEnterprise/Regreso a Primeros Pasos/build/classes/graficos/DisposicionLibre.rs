@@ -1,0 +1,4 @@
+graficos.DisposicionLibre
+graficos.LaminaLibre
+graficos.marcoLibre
+graficos.EnColumnas

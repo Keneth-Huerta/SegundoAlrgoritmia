@@ -1,0 +1,18 @@
+package leyendo;
+
+import java.io.FileReader;
+
+public class AccesoFichero {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+class LeerFichero{
+	
+	public void lee() {
+		FileReader entrada = new FileReader("C:\\Users\\kenet\\OneDrive\\Escritorio\hola.txt");
+	}
+}

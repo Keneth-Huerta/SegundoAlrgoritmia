@@ -1,0 +1,14 @@
+package conectaBD;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConectaPruebas {
+
+	public static void main(String[] args) {
+
+		Connection miConexion=DriverManager.getConnection("jdbc:mysql;//loclhost:3306/", null, null);
+		
+	}
+
+}

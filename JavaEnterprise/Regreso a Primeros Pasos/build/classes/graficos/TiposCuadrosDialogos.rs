@@ -1,0 +1,4 @@
+graficos.TiposCuadrosDialogos
+graficos.LaminaCuadrosDialogos$AccionBotones
+graficos.CuadroDialogos
+graficos.LaminaCuadrosDialogos

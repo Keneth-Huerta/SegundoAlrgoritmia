@@ -1,0 +1,40 @@
+package leyendo;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class AccesoFichero {
+
+	public static void main(String[] args) {
+
+		LeerFichero accediendo = new LeerFichero();
+		accediendo.lee();
+	}
+
+}
+
+class LeerFichero {
+	private FileReader entrada;
+
+	public void lee() {
+		try {
+			entrada = new FileReader("C:/Users/kenet/OneDrive/Escritorio/hola.txt");
+			int c = entrada.read();
+			while (c != -1) {
+				c = entrada.read();
+				System.out.println(c);
+			}
+		} catch (Exception e) {
+
+			System.out.println("No se ha encontrado el archivo");
+			e.printStackTrace();
+		} finally {
+			try {
+				entrada.close();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+}

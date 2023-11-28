@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;Cubo-EnfocadoL.png&apos; to &apos;excepciones_I&apos;" description="Move &apos;Cubo-EnfocadoL.png&apos; to &apos;excepciones_I&apos;" destination="src/excepciones_I" element1="/Calculadora/src/Cubo-EnfocadoL.png" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1689867694198" updateReferences="true"/>
+</session>

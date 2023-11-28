@@ -1,0 +1,65 @@
+package usothreads;
+
+public class SincronizandoHilos {
+
+	public static void main(String[] args) {
+
+		HilosVarios hilo1 = new HilosVarios("1");
+		HilosVarios2 hilo2 = new HilosVarios2("2", hilo1);
+		hilo2.start();
+		hilo1.start();
+	}
+}
+
+class HilosVarios extends Thread {
+	private String h;
+
+	public HilosVarios(String h) {
+
+		this.h = h;
+	}
+
+	public void run() {
+
+		for (int i = 0; i < 15; i++) {
+
+			System.out.println("Ejecutando hilo " + h + " " + getName());
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+class HilosVarios2 extends Thread {
+	private String h;
+	private Thread hilo;
+
+	public HilosVarios2(String h, Thread hilo) {
+
+		this.hilo = hilo;
+		this.h = h;
+	}
+
+	public void run() {
+
+		try {
+
+			hilo.join();
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		for (int i = 0; i < 15; i++) {
+
+			System.out.println("Ejecutando hilo " + h + " " + getName());
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

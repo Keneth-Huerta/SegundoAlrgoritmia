@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;es.pioldoras.loC.Empleados&apos; to &apos;UsoEmpleados&apos;&#x0D;&#x0A;- Original project: &apos;ProyectoSpringUno&apos;&#x0D;&#x0A;- Original element: &apos;es.pioldoras.loC.Empleados&apos;&#x0D;&#x0A;- Renamed element: &apos;es.pioldoras.loC.UsoEmpleados&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Empleados&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;es.pioldoras.loC{Empleados.java[Empleados" matchStrategy="1" name="UsoEmpleados" qualified="false" references="true" similarDeclarations="false" stamp="1697003699519" textual="false" version="1.0"/>
+</session>

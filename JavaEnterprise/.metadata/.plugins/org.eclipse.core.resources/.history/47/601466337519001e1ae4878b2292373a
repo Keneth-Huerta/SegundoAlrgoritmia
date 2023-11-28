@@ -1,0 +1,36 @@
+package graficos;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PruebaTexto {
+
+	public static void main(String[] args) {
+
+		MarcoTexto mimarco = new MarcoTexto();
+		mimarco.setVisible(true);
+	}
+
+}
+
+class MarcoTexto extends JFrame {
+
+	public MarcoTexto() {
+
+		setBounds(600, 300, 600, 350);
+		setIconImage(new Logo().image());
+
+		LaminaTexto milamina = new LaminaTexto();
+		add(milamina);
+	}
+}
+
+class LaminaTexto extends JPanel {
+
+	public LaminaTexto() {
+
+		JTextField campo1 = new JTextField("Texto por defecto", 20);
+		add(campo1);
+	}
+}

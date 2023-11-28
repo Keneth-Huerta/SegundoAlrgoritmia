@@ -18,11 +18,11 @@ public class NombresArreglo {
             promedios[i] = inR.nextFloat();
 
         }
-        // for (int i = 0; i < 5; i++) {
-        // promedio += promedios[i];
-        // }
-        // promedio /= promedios.length;
-        // System.out.println("\nel promedio es: " + promedio);
+        for (int i = 0; i < 5; i++) {
+            promedio += promedios[i];
+        }
+        promedio /= promedios.length;
+        System.out.println("\nel promedio es: " + promedio);
         String repetir = "s";
         while (repetir.equalsIgnoreCase("s")) {
 
@@ -34,13 +34,14 @@ public class NombresArreglo {
                 if (nombre.equalsIgnoreCase(alumnos[i])) {
                     System.out.println("El promedio de " + alumnos[i] + " es: " + promedios[i]);
                     verd = true;
+                    break;
                 }
 
             }
-            if (verd == false) {
+            if (!verd) {
                 System.out.println("la persona no existe");
             }
-            System.out.println("Quieres repetir?");
+            System.out.println("Quieres repetir? s/n");
             Scanner inRR = new Scanner(System.in);
             repetir = inRR.nextLine();
 

@@ -1,0 +1,3 @@
+graficos.PruebaDibujo
+graficos.LaminaConfiguras
+graficos.MarcoConDibujo

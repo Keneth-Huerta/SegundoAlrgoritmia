@@ -1,0 +1,16 @@
+package leyendo;
+
+public class AccesoFichero {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+class LeerFichero{
+	
+	public void lee() {
+		
+	}
+}

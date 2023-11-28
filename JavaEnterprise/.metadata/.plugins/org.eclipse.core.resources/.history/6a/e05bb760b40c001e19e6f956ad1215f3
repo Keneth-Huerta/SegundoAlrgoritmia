@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class buclesCondicionales {
+
+	public static void main(String[] args) {
+		while (>3) {
+			int x;
+			x++;
+		}
+		for
+	}
+
+}

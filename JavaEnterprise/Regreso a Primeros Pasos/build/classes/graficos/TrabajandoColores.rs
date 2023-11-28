@@ -1,0 +1,3 @@
+graficos.LaminaConColor
+graficos.MarcoConColor
+graficos.TrabajandoColores

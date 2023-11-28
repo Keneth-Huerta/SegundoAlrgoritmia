@@ -1,0 +1,78 @@
+package arraylist;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class UsoEmpleado {
+
+	public static void main(String[] args) {
+
+//		Empleado listaEmpleado[]=new Empleado[3];
+//		listaEmpleado[0]=new Empleado("Ana",45,2500);
+//		listaEmpleado[1]=new Empleado("Antonio",55,2000);
+//		listaEmpleado[2]=new Empleado("María",25,2600);
+
+		ArrayList<Empleado> listaEmpleado = new ArrayList<Empleado>();
+//		listaEmpleado.ensureCapacity(14);
+		listaEmpleado.add(new Empleado("Ana", 45, 2500));
+		listaEmpleado.add(new Empleado("Antonio", 55, 2000));
+		listaEmpleado.add(new Empleado("María", 25, 2200));
+		listaEmpleado.add(new Empleado("José", 25, 2600));
+		listaEmpleado.add(new Empleado("José", 25, 2600));
+		listaEmpleado.add(new Empleado("Ana", 45, 2500));
+		listaEmpleado.add(new Empleado("Antonio", 55, 2000));
+		listaEmpleado.add(new Empleado("María", 25, 2200));
+		listaEmpleado.add(new Empleado("José", 25, 2600));
+		listaEmpleado.add(new Empleado("José", 25, 2600));
+		listaEmpleado.add(new Empleado("Pedro", 22, 2600));
+		listaEmpleado.add(new Empleado("Pedro", 22, 2600));
+		listaEmpleado.add(new Empleado("Pedro", 22, 2600));
+		listaEmpleado.add(new Empleado("Pedro", 22, 2600));
+//		listaEmpleado.trimToSize();
+//		listaEmpleado.add(new Empleado("Olga", 22, 2600));
+//		listaEmpleado.set(1, new Empleado("Olga", 22, 2200));
+//		System.out.println(listaEmpleado.get(4).dameDatos());
+
+//		System.out.println(listaEmpleado.size());
+//		for (Empleado empleado : listaEmpleado) {
+//			System.out.println(empleado.dameDatos());
+//		}
+
+		Iterator<Empleado> miIterador = listaEmpleado.iterator();
+		
+		while (miIterador.hasNext()) {
+			
+			System.out.println(miIterador.next());
+		}
+
+//		for (int i = 0; i < listaEmpleado.size(); i++) {
+//
+//			System.out.println(listaEmpleado.get(i).dameDatos());
+//		}
+//		Empleado arrayEmpleados[]=new Empleado[listaEmpleado.size()];
+//		listaEmpleado.toArray(arrayEmpleados);
+//		for (int i = 0; i < arrayEmpleados.length; i++) {
+//			
+//			System.out.println(arrayEmpleados[i].dameDatos());
+//		}
+	}
+
+}
+
+class Empleado {
+	private String nombre;
+	private int edad;
+	private double salario;
+
+	public Empleado(String nombre, int edad, double salario) {
+
+		this.nombre = nombre;
+		this.edad = edad;
+		this.salario = salario;
+	}
+
+	public String toString() {
+
+		return "El empleado se llama " + nombre + ". Tiene " + edad + " años." + " Y un salario de " + salario;
+	}
+}

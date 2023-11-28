@@ -1,0 +1,3 @@
+graficos.LaminaProcesadorTextos
+graficos.ProcesadorTextos
+graficos.menuProcesadorTextos

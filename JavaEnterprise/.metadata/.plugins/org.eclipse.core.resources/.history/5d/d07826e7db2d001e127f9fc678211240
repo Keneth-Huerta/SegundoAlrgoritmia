@@ -1,0 +1,11 @@
+package arraylist;
+
+public class UsoEmpleado {
+
+	public static void main(String[] args) {
+
+		Empleado listaEmpleado[]=new Empleado[3];
+		listaEmpleado[0]=new Empleado("Ana",45,25)
+	}
+
+}
