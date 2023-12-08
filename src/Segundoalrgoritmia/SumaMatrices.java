@@ -1,3 +1,5 @@
+package Segundoalrgoritmia;
+
 import java.util.Random;
 
 public class SumaMatrices {

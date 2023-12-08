@@ -1,4 +1,4 @@
-// // import java.util.Scanner;
+import java.util.Scanner;
 
 public class Pruebaserie2 {
 
@@ -22,6 +22,7 @@ public class Pruebaserie2 {
       System.out.println("" + i);
       contador++;
     }
+    int numeros[]=new int[5];
 
     System.out.println("El número de elementos de la serie es: " + contador);
   }
