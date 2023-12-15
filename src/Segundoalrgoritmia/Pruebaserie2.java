@@ -1,3 +1,5 @@
+package Segundoalrgoritmia;
+
 import java.util.Scanner;
 
 public class Pruebaserie2 {
