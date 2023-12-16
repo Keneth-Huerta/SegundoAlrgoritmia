@@ -22,7 +22,7 @@ public class Pruebaserie2 {
       System.out.println("" + i);
       contador++;
     }
-    int numeros[5]=new int[];
+    int numeros[]=new int[5];
 
     System.out.println("El número de elementos de la serie es: " + contador);
   }
