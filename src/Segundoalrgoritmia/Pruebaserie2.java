@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+package Segundoalrgoritmia;
+
+>>>>>>> bba1b78774fae1fcc6b12adb9eff6c81f0be8f87
 import java.util.Scanner;
 
 public class Pruebaserie2 {
@@ -22,6 +27,7 @@ public class Pruebaserie2 {
       System.out.println("" + i);
       contador++;
     }
+    int numeros[]=new int[5];
 
     System.out.println("El número de elementos de la serie es: " + contador);
   }
