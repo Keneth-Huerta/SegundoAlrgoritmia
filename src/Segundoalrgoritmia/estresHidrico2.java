@@ -57,7 +57,7 @@ public class estresHidrico2 {
 
 			if (widgetsTotal[i] >= min && widgetsTotal[i] <= max) {
 
-				System.out.println(widgetsName[i - 1] + ": "+widgetsTotal[i]);
+				System.out.println(widgetsName[i - 1] + ": " + widgetsTotal[i]);
 
 				System.out.print("  Agricola: " + widgetChartText[i * 3 - 3] + "\n");
 				System.out.print("  Doméstico: " + widgetChartText[i * 3 - 2] + "\n");
