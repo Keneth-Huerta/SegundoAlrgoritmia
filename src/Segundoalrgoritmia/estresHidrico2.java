@@ -53,15 +53,15 @@ public class estresHidrico2 {
 	public static void country(int min, int max) {
 		int cont = 0;
 
-		for (int i = 0; i < widgetsTotal.length; i++) {
+		for (int i = 1; i < widgetsTotal.length; i++) {
 
 			if (widgetsTotal[i] >= min && widgetsTotal[i] <= max) {
 
-				System.out.println(widgetsName[i - 1] + ": ");
+				System.out.println(widgetsName[i - 1] + ": "+widgetsTotal[i]);
 
-				System.out.print("Agricola: " + widgetChartText[i * 3 - 3] + "\n");
-				System.out.print("Doméstico: " + widgetChartText[i * 3 - 2] + "\n");
-				System.out.print("Industrial: " + widgetChartText[i * 3 - 1] + "\n\n");
+				System.out.print("  Agricola: " + widgetChartText[i * 3 - 3] + "\n");
+				System.out.print("  Doméstico: " + widgetChartText[i * 3 - 2] + "\n");
+				System.out.print("  Industrial: " + widgetChartText[i * 3 - 1] + "\n\n");
 				cont++;
 
 			}
