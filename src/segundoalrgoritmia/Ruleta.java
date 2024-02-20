@@ -1,4 +1,4 @@
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 public class Ruleta {
     public static void main(String[] args) {
         int x, contador1=0, contador2=0;

@@ -1,6 +1,6 @@
 
 
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 
 
 public class Prueba4 {

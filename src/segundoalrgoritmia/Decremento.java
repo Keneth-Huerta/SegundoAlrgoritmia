@@ -1,4 +1,4 @@
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 import java.util.Scanner;
 public class Decremento {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
 
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 import java.util.Scanner;
 public class Papelerialuisito {
     public static void main(String[] args) {

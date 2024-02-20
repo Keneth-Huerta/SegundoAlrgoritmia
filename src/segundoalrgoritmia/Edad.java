@@ -1,4 +1,4 @@
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -1,3 +1,4 @@
+package segundoalrgoritmia;
 import java.util.Scanner;
 
 public class PromedioSerie {

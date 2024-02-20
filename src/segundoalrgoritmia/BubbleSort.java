@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package segundoalrgoritmia;
+-import java.util.Arrays;
 
 public class BubbleSort {
 

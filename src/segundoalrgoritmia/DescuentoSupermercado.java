@@ -1,4 +1,4 @@
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 
 import java.util.Random;
 import java.util.Scanner;

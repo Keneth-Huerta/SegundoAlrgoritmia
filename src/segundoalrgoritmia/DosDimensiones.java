@@ -1,4 +1,4 @@
-package Segundoalrgoritmia;
+package segundoalrgoritmia;
 
 public class DosDimensiones {
     public static void main(String[] args) {
