@@ -61,9 +61,13 @@ public class estresHidrico2 {
 		double aux;
 		String temp;
 
+<<<<<<< HEAD:src/keneth/estresHidrico2.java
 		for (int i = 0; i < widgetsTotal.length; i++) {
 			for (int j = 0; j < widgetsTotal.length - 1; j++) {
 				for (int j2 = 0; j2 < widgetsTotal.length - j - 1; j2++) {
+=======
+		for (int i = 1; i < widgetsTotal.length; i++) {
+>>>>>>> 9059c0d35a0d822bfbaeeccaf3d86f66d8d74b9b:src/Segundoalrgoritmia/estresHidrico2.java
 
 					if (widgetsTotal[j2] > widgetsTotal[j2 + 1]) {
 						aux = widgetsTotal[j2];
@@ -78,6 +82,14 @@ public class estresHidrico2 {
 			}
 			if (widgetsTotal[i] >= min && widgetsTotal[i] <= max) {
 
+<<<<<<< HEAD:src/keneth/estresHidrico2.java
+=======
+				System.out.println(widgetsName[i - 1] + ": " + widgetsTotal[i]);
+
+				System.out.print("  Agricola: " + widgetChartText[i * 3 - 3] + "\n");
+				System.out.print("  Doméstico: " + widgetChartText[i * 3 - 2] + "\n");
+				System.out.print("  Industrial: " + widgetChartText[i * 3 - 1] + "\n\n");
+>>>>>>> 9059c0d35a0d822bfbaeeccaf3d86f66d8d74b9b:src/Segundoalrgoritmia/estresHidrico2.java
 				cont++;
 				System.out.println(widgetsName[i] + ": " + widgetsTotal[i]);
 			}
