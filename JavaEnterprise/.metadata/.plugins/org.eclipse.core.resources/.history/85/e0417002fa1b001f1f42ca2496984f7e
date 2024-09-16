@@ -1,0 +1,19 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import controlador.Conexion;
+
+public class CargaSecciones {
+	public ResultSet rs;
+	Conexion miConexion;
+
+	public CargaSecciones() {
+
+		miConexion = new Conexion();
+	}
+
+	
+}

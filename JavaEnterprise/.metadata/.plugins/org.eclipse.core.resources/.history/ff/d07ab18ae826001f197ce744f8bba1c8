@@ -1,0 +1,14 @@
+package com.mime.minefront;
+
+public class Configuration {
+
+	public void saveConfigurtion(String key, int value) {
+		
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

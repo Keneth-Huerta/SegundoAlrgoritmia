@@ -1,0 +1,4 @@
+x = x;
+		this.y = y;
+		this.largo = largo;
+		this.longitud = longitud;

@@ -1,0 +1,12 @@
+package modelo;
+
+import java.sql.Statement;
+
+import controlador.Conexion;
+
+public class ModificaConsulta {
+	private Conexion miConexion;
+	private Statement miStatement;
+	private final String instruccionSQ
+	
+}

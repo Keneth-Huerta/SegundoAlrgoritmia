@@ -1,0 +1,11 @@
+package graficos;
+
+public class PruebaLista {
+
+	public static void main(String[] args) {
+		
+		Jframe mimarco=new MarcoDeLista()
+;
+	}
+
+}

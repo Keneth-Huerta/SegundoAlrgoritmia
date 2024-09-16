@@ -1,0 +1,12 @@
+package lienzo;
+
+import javax.swing.JFrame;
+
+public class VentanaLienzo extends JFrame{
+
+	public VentanaLienzo() {
+		
+		setTitle("algo");
+		
+	}
+}

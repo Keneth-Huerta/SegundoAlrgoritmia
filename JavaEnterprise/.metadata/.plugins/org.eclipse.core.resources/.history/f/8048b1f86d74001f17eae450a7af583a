@@ -1,0 +1,16 @@
+package ajedrez;
+
+import javax.swing.JFrame;
+
+public class Ajedrez {
+
+	public static void main(String[] args) {
+
+		JFrame miventa=new JFrame();
+		miventa.setTitle("Tablero");
+		miventa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		miventa.pack();
+		miventa.setVisible(true);
+	}
+
+}

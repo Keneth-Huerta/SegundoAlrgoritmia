@@ -51,7 +51,7 @@ class EnvioOnline extends WindowAdapter {
 
 		try {
 
-			Socket misocket = new Socket("192.168.0.14", 3535);
+			Socket misocket = new Socket("192.168.100.12", 3535);
 			PaqueteEnvio datos = new PaqueteEnvio();
 			datos.setMensaje("1073046681444176685L");
 			ObjectOutputStream paquetdDatos = new ObjectOutputStream(misocket.getOutputStream());
@@ -109,7 +109,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable {
 
 				try {
 
-					Socket misocket = new Socket("192.168.0.14", 3535);
+					Socket misocket = new Socket("192.168.100.12", 3535);
 					PaqueteEnvio datos = new PaqueteEnvio();
 					datos.setNick(nick.getText());
 					datos.setIp(ip.getSelectedItem().toString());

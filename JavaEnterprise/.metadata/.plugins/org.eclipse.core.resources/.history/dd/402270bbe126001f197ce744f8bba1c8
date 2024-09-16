@@ -1,0 +1,16 @@
+package com.mime.minefront.gui;
+
+import java.awt.Dimension;
+
+public class Options extends Launcher {
+
+	private static final long serialVersionUID = -7743258581038005972L;
+	private int width = 540, height = 440;
+
+	public Options() {
+		super();
+		setTitle("Options - Minefront Launcher");
+		setSize(new Dimension(WIDTH, HEIGHT));
+	}
+
+}

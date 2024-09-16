@@ -1,0 +1,15 @@
+package com.mime.minefront;
+
+public class Game {
+	public int time;
+
+	public Game() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void tick() {
+
+		time++;
+	}
+
+}

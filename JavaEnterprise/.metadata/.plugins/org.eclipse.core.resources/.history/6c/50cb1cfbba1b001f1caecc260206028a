@@ -1,0 +1,12 @@
+package conectaBD;
+
+public class AplicacionConsulta {
+
+	public static void main(String[] args) {
+		
+		
+	}
+}
+class VentaConsulta extends JFrame{
+	
+}

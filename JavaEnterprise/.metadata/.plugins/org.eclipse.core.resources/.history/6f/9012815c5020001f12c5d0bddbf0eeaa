@@ -1,0 +1,16 @@
+import javax.media.j3d.BranchGroup;
+import javax.media.j3d.Node;
+
+public class Prueba3D {
+
+	public Prueba3D() {
+		
+		SimpleUniverse univers= new SimpleUniverse();	
+		BranchGroup grupo=new BranchGroup();
+		grupo.addChild(new Node(0.3));
+	}
+
+	public static void main(String[] args) {
+			
+	}
+}

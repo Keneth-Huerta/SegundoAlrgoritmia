@@ -1,0 +1,16 @@
+package com.mime.minefront;
+
+public class Game {
+	public int time;
+
+	public Game() {
+		
+	}
+	
+	public void tick() {
+
+		time++;
+		boolean forward=key
+	}
+
+}

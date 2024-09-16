@@ -1,0 +1,29 @@
+package graficos;
+
+import javax.swing.JFrame;
+
+public class AnimalesSelva {
+
+	public static void main(String[] args) {
+		
+		MarcoAnimales mimarco=new MarcoAnimales();
+		mimarco.setVisible(true);
+	}
+
+}
+class MarcoAnimales extends JFrame{
+	
+	public MarcoAnimales() {
+		
+		setTitle("Animaes de la selva");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(300,400);
+		setLocationRelativeTo(null);
+		
+		
+	}
+}
+class LaminaAnimales extends JFrame{
+	
+	
+}

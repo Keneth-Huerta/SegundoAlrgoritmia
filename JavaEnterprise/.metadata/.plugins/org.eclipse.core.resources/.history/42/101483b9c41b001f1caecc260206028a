@@ -1,0 +1,43 @@
+package conectaBD;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class AplicacionConsulta {
+
+	public static void main(String[] args) {
+
+	}
+}
+
+class VentaConsulta extends JFrame {
+
+	public VentaConsulta() {
+
+		setTitle("Consulta BBDD");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// setSize();
+	}
+}
+
+class MarcoConsulta extends JPanel {
+
+	public MarcoConsulta() {
+
+	
+		
+		JComboBox<String> com1 = new JComboBox<String>(
+				new String[] { "Todos", "Electrónica", "Hogar", "Deportes", "Moda" });
+		JComboBox<String> com2 = new JComboBox<String>(new String[] { "China", "Estados Unidos", "Alemania", "Japón",
+				"Países Bajos", "Francia", "Italia", "España", "Corea del Sur", "Suecia" });
+		JTextArea area1 = new JTextArea();
+		JButton boton = new JButton("Consulta");
+		
+		add(com1,new BorderLayout().NORTH);
+	}
+}

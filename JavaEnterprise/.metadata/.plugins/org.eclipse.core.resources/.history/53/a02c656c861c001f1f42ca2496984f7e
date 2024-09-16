@@ -1,0 +1,21 @@
+package modelo;
+
+import controlador.Conexion;
+
+public class EjecutaConsultas {
+private Conexion miConexion;
+private ResultSet rs;
+private PreparableStatement enviaConsultaSeccion;
+	
+	public String filtraBBDD(String seccion, String pais) {
+
+		if (!seccion.equals("Todos") && pais.equals("Todos")) {
+
+		} else if (seccion.equals("Todos") && !pais.equals("Todos")) {
+
+		} else {
+
+		}
+		return null;
+	}
+}

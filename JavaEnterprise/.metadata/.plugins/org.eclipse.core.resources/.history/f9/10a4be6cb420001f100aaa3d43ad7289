@@ -1,0 +1,12 @@
+package com.mime.minefront.input;
+
+public class Controller {
+
+	public double x, z, rotation, xa, za, rotationa;
+
+	@SuppressWarnings("unused")
+	private void tick(boolean forward, boolean back, boolean left, boolean right, boolean turnLeft, boolean turnRight) {
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package controlador;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import vista.MarcoAplicacion;
+
+public class ControladorBotonEjecuta implements ActionListener {
+	private MarcoAplicacion elmarco;
+
+	public ControladorBotonEjecuta(MarcoAplicacion elmarco) {
+
+		this.elmarco = elmarco;
+	}
+
+	public void actionPerformed(ActionEvent e) {
+
+		String seleccionSeccion=elmarco.getSecciones().getSelectedItem().toString();
+	}
+}

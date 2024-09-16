@@ -1,0 +1,50 @@
+package ReonCraft;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.lwjgl.opengl.Display;
+import org.lwjgl.util.vector.Vector3f;
+
+import Chunks.Chunk;
+import Chunks.ChunkMesh;
+import Cube.Block;
+import Entities.Camera;
+import Entities.Entity;
+import Models.AtlasCubeModel;
+import Models.CubeModel;
+import Models.RawModel;
+import Models.TexturedModel;
+import RenderEngine.DisplayManager;
+import RenderEngine.Loader;
+import RenderEngine.MasterRenderer;
+import Shaders.StaticShader;
+import Textures.ModelTexture;
+import Toolbox.PerlinNoiseGenerator;
+
+public class MainGameLoop {
+	
+	public static Loader loader1 = null;
+	public static StaticShader shader1 = null;
+	
+	static List<ChunkMesh> chunks = Collections.synchronizedList(new ArrayList<ChunkMesh>());
+	static Vector3f camPos = new Vector3f(0, 0, 0);
+	static List<Vector3f> usedPos  = new ArrayList<Vector3f>();
+	
+	static List<Entity> entities = new ArrayList<Entity>();
+	
+	static final int WORLD_SIZE = 5 * 32;
+	
+	static boolean closeDisplay = false;
+
+	public static void main(String[] args) {
+
+		
+		}
+		
+		DisplayManager.closeDisplay();
+
+	}
+
+}

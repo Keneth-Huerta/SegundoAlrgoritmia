@@ -1,0 +1,26 @@
+package ajedrez;
+
+import javax.swing.JFrame;
+
+public class Ajedrez {
+
+	public static void main(String[] args) {
+		
+		System.out.println("dame x:");
+		System.out.println("dame x:");
+		System.out.println("dame x:");
+		System.out.println("dame x:");
+
+		JFrame miventa = new JFrame();
+
+		Lienzo mimarco = new Lienzo();
+		miventa.add(mimarco);
+
+		miventa.setTitle("Tablero");
+		miventa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		miventa.pack();
+		miventa.setLocationRelativeTo(null);
+		miventa.setVisible(true);
+	}
+
+}

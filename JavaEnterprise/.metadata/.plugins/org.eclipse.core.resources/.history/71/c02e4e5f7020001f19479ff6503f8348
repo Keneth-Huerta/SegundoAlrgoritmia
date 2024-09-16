@@ -1,0 +1,10 @@
+package com.mime.minefront.graphics;
+
+public class Screen extends Render	{
+
+	public Screen(int width, int heigh) {
+		super(width, heigh);
+		// TODO Auto-generated constructor stub
+	}
+
+}

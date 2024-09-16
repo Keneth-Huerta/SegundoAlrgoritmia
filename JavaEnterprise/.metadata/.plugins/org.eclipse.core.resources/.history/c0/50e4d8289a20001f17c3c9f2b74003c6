@@ -1,0 +1,11 @@
+package com.mime.minefront;
+
+public class Game {
+	public int time;
+	
+	private void tick() {
+		// TODO Auto-generated method stub
+
+	}
+	
+}

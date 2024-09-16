@@ -1,0 +1,32 @@
+package ReonCraft;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.lwjgl.util.vector.Vector3f;
+
+import Chunks.ChunkMesh;
+import Entities.Entity;
+import RenderEngine.Loader;
+import Shaders.StaticShader;
+
+public class DisplayReonCraft {
+	public static Loader loader1 = null;
+	public static StaticShader shader1 = null;
+	
+	static List<ChunkMesh> chunks = Collections.synchronizedList(new ArrayList<ChunkMesh>());
+	static Vector3f camPos = new Vector3f(0, 0, 0);
+	static List<Vector3f> usedPos  = new ArrayList<Vector3f>();
+	
+	static List<Entity> entities = new ArrayList<Entity>();
+	
+	static final int WORLD_SIZE = 5 * 32;
+	
+	static boolean closeDisplay = false;
+
+	public DisplayReonCraft() {
+		
+		
+	}
+}

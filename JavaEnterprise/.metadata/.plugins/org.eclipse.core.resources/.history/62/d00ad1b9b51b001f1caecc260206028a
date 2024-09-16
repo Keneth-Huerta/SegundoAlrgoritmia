@@ -1,0 +1,24 @@
+package conectaBD;
+
+import java.sql.*;
+
+
+public class ConsultaPreparada {
+
+	public static void main(String[] args) {
+
+		try {
+			// 1. Crear conexión
+			Connection miConexion = DriverManager.getConnection("jdbc:mysql:localhost:3306/pruebas", "root", "");
+
+			// 2. Preparar consulta
+
+			PreparedStatement miSentencia=miConexion.prepareStatement("SELECT NombreArticulo, Secion, PaisOrigen FROM articulos WHERE Seccion=? AND PaisOrigen=?");			
+		
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

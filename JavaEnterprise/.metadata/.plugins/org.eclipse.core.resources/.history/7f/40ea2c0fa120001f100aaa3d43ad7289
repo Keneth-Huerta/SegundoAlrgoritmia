@@ -1,0 +1,19 @@
+package com.mime.minefront.graphics;
+
+public class Render3D extends Render {
+
+	public Render3D(int width, int heigh) {
+		super(width, heigh);
+
+	}
+
+	public void floor() {
+		for (int y = 0; y < height; y++) {
+			double yDepth = y - height / 2;
+			o
+			for (int x = 0; x < width; x++) {
+
+			}
+		}
+	}
+}

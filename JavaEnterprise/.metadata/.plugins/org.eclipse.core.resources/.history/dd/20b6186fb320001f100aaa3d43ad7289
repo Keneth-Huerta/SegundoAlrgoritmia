@@ -1,0 +1,21 @@
+package com.mime.minefront;
+
+import java.awt.event.KeyEvent;
+
+public class Game {
+	public int time;
+
+	public Game() {
+
+	}
+
+	public void tick(boolean[] key) {
+
+		time++;
+		boolean forward = key[KeyEvent.VK_W];
+		boolean back = key[KeyEvent.VK_W];
+		boolean forward = key[KeyEvent.VK_W];
+		boolean forward = key[KeyEvent.VK_W];
+	}
+
+}

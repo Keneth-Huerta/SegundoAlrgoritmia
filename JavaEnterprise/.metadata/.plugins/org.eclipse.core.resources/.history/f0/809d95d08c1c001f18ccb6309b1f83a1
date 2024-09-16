@@ -1,0 +1,10 @@
+package controlador;
+
+import java.awt.event.ActionListener;
+
+public class ControladorBotonCambia implements ActionListener{
+
+	public void ejecutaCambia(){
+		
+	}
+}

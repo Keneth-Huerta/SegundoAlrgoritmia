@@ -1,0 +1,32 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import controlador.Conexion;
+
+public class ModificaConsulta {
+	private Conexion miConexion;
+	private PreparedStatement enviaCambio;
+	private final String instruccionSQL = "UPDATE articulos SET PRECIO=? WHERE CodigoArticulos=?";
+
+	public ModificaConsulta() {
+
+		miConexion = new Conexion();
+	}
+
+	public String cambiaContenido(String cambio,String ) {
+		String prueba;
+		Connection conecta = miConexion.dameConexion();
+		prueba = null;
+		try {
+			enviaCambio = conecta.prepareStatement(instruccionSQL);
+			enviaCambio.setString(1, cambio);
+
+		} catch (Exception e) {
+			e.getMessage();
+			e.printStackTrace();
+		}
+		return prueba;
+	}
+}

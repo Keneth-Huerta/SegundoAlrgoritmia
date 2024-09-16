@@ -1,0 +1,58 @@
+package conectaBD;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class AplicacionConsulta {
+
+	public static void main(String[] args) {
+
+		VentaConsulta mimarco = new VentaConsulta();
+		mimarco.setVisible(true);
+	}
+}
+
+class VentaConsulta extends JFrame {
+
+	public VentaConsulta() {
+
+		setTitle("Consulta BBDD");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(400, 400);
+		setLocationRelativeTo(null);
+
+		MarcoConsulta milamina = new MarcoConsulta();
+		add(milamina);
+	}
+}
+
+class MarcoConsulta extends JPanel {
+	JComboBox<String> secciones;
+	JComboBox<String> paises;
+	JTextArea resultado;
+
+	public MarcoConsulta() {
+
+		setLayout(new BorderLayout());
+		JPanel lamina1 = new JPanel();
+		menus.flow
+
+		secciones = new JComboBox<String>(new String[] { "Todos", "Electrónica", "Hogar", "Deportes", "Moda" });
+		secciones.setEditable(false);
+		paises = new JComboBox<String>(new String[] { "Todos", "China", "Estados Unidos", "Alemania", "Japón",
+				"Países Bajos", "Francia", "Italia", "España", "Corea del Sur", "Suecia" });
+		resultado = new JTextArea();
+		JButton boton = new JButton("Consulta");
+
+		lamina1.add(secciones);
+		lamina1.add(paises);
+		add(lamina1, BorderLayout.NORTH);
+		add(resultado, BorderLayout.CENTER);
+		add(boton, BorderLayout.SOUTH);
+	}
+}

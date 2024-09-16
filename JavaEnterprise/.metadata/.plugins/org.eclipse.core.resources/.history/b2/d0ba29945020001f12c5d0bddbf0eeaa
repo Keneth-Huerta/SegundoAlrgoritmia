@@ -1,0 +1,17 @@
+import javax.media.j3d.BranchGroup;
+
+import com.sun.j3d.univers;
+
+public class Prueba3D {
+
+	public Prueba3D() {
+		
+		SimpleUniverse univers= new SimpleUniverse();	
+		BranchGroup grupo=new BranchGroup();
+		grupo.addChild(new ColorCube(0.3));
+	}
+
+	public static void main(String[] args) {
+			
+	}
+}

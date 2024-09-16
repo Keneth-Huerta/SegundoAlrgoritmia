@@ -1,0 +1,25 @@
+package modelo;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import controlador.Conexion;
+
+public class EjecutaConsultas {
+private Conexion miConexion;
+private ResultSet rs;
+private PreparedStatement enviaConsultaSeccion;
+private final StringConsultaSeccion="SELECT NombreArticulo, Seccion, Precio,PaisOrigen FROM articulos WHERE ";
+	
+	public String filtraBBDD(String seccion, String pais) {
+
+		if (!seccion.equals("Todos") && pais.equals("Todos")) {
+
+		} else if (seccion.equals("Todos") && !pais.equals("Todos")) {
+
+		} else {
+
+		}
+		return null;
+	}
+}

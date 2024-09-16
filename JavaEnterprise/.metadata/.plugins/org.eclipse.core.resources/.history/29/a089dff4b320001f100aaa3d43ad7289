@@ -1,0 +1,7 @@
+package com.mime.minefront.input;
+
+public class Controller {
+
+	public double x = 0, z = 0;
+
+}

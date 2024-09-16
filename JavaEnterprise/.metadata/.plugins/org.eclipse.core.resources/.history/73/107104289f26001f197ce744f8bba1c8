@@ -1,0 +1,9 @@
+package com.mime.minefront.level;
+
+public class Level {
+	public Block[] blocks;
+
+	public Leve(int width, int heigth) {
+		
+	}
+}

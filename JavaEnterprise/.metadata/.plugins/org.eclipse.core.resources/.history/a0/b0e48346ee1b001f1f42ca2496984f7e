@@ -1,0 +1,8 @@
+package modelo;
+
+import controlador.Conexion;
+
+public class CargaSecciones {
+
+	Conexion miConexion;
+}

@@ -1,0 +1,15 @@
+import javax.media.j3d.BranchGroup;
+
+public class Prueba3D {
+
+	public Prueba3D() {
+		
+		SimpleUniverse univers= new SimpleUniverse();	
+		BranchGroup grupo=new BranchGroup();
+		grupo.addChild(new col);
+	}
+
+	public static void main(String[] args) {
+			
+	}
+}

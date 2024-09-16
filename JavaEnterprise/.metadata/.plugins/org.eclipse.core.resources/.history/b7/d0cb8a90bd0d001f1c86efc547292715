@@ -1,0 +1,36 @@
+package graficos;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+
+public class PruebaLista {
+
+	public static void main(String[] args) {
+
+		JFrame mimarco = new MarcoDeLista();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mimarco.setVisible(true);
+	}
+
+}
+
+class MarcoDeLista extends JFrame {
+
+	public MarcoDeLista() {
+
+		setTitle("Prueba de lista");
+		setSize(400, 300);
+		setLocationRelativeTo(null);
+
+		String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+				"Octubre", "Noviembre", "Diciembre" };
+		
+		listaDeMeses=new JList<String>(meses);
+	}
+
+	private JList<String> listaDeMeses;
+	private JPanel laminaDeLista, laminaDeTexto;
+	private JLabel rotulo;
+}

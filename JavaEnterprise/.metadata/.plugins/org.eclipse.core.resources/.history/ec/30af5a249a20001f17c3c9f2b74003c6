@@ -1,0 +1,6 @@
+package com.mime.minefront;
+
+public class Game {
+	public int time;
+	
+}

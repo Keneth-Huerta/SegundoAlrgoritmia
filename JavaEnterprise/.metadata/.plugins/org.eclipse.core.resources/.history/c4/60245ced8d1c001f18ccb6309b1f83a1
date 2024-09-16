@@ -1,0 +1,12 @@
+package modelo;
+
+import java.sql.ResultSet;
+
+import controlador.Conexion;
+
+public class ModificaConsulta {
+	private Conexion miConexion;
+	private ResultSet rs;
+	
+	
+}

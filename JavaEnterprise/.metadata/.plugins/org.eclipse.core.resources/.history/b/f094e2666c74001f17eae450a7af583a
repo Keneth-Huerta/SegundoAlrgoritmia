@@ -1,0 +1,11 @@
+package ajedrez;
+
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel{
+
+		public Lienzo() {
+		
+			
+		}
+}

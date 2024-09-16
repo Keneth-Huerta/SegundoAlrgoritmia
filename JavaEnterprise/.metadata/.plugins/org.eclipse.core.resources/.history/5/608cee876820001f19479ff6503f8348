@@ -1,0 +1,33 @@
+package com.mime.minefront;
+
+import java.awt.Canvas;
+
+import javax.swing.JFrame;
+
+public class Display extends Canvas {
+	private static final long serialVersionUID = -346504722713325956L;
+	public static final int WIDTH = 800, HEIGHT = 600;
+	public static final String TITLE = "Minefont Pre-Alpha 0.01";
+	
+	private Thread thread;
+	private boolean running =false;
+	
+	private void start() {
+		
+	}
+
+	public static void main(String[] args) {
+
+		Display game = new Display();
+		JFrame frame = new JFrame();
+		frame.add(game);
+		frame.pack();
+		frame.setTitle(TITLE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(WIDTH, HEIGHT);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
+		frame.setVisible(true);
+
+	}
+}

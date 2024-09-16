@@ -1,0 +1,15 @@
+package com.mime.minefront.graphics;
+
+public class Screen extends Render	{
+
+	
+	public Screen(int width, int heigh) {
+		super(width, heigh);
+		test=new Render(256, 256);
+		
+	}
+	public void render() {
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package graficos;
+
+import javax.swing.JFrame;
+
+public class PruebaLista {
+
+	public static void main(String[] args) {
+
+		JFrame mimarco = new MarcoDeLista();
+
+	}
+
+}
+
+class MarcoDeLista extends JFrame {
+
+	public MarcoDeLista() {
+		
+		setTitle
+	}
+}

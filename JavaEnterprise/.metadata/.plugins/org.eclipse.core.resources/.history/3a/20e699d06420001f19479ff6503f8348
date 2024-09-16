@@ -1,0 +1,13 @@
+package com.mime.minefront;
+
+import java.awt.Canvas;
+
+public class Display extends Canvas {
+	int WIDTH=800;
+	int HEIGHT1
+	
+	public static void main(String[] args) {
+
+		Display game = new Display();
+	}
+}

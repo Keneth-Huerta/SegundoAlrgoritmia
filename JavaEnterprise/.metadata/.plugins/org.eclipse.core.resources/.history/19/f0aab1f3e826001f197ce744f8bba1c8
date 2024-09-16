@@ -1,0 +1,18 @@
+package com.mime.minefront;
+
+import java.io.File;
+
+public class Configuration {
+
+	public void saveConfigurtion(String key, int value) {
+
+		try {
+
+			File file = new File("setting/config.xml");
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+}

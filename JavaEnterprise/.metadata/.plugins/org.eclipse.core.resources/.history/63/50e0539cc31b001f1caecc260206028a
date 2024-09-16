@@ -1,0 +1,29 @@
+package conectaBD;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class AplicacionConsulta {
+
+	public static void main(String[] args) {
+		
+		
+	}
+}
+class VentaConsulta extends JFrame{
+	
+	public VentaConsulta() {
+	
+		setTitle("Consulta BBDD");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	//	setSize();
+	}
+}
+class MarcoConsulta extends JPanel{
+	
+	public MarcoConsulta() {
+	
+		JComboBox 
+	}
+}

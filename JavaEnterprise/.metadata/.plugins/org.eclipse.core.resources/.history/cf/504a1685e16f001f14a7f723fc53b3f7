@@ -1,0 +1,10 @@
+package lienzo;
+
+import javax.swing.JFrame;
+
+public class VentanaLienzo extends JFrame{
+
+	public VentanaLienzo() {
+		// TODO Auto-generated constructor stub
+	}
+}

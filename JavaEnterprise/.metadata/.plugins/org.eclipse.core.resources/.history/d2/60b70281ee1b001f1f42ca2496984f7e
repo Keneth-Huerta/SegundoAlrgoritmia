@@ -1,0 +1,22 @@
+package modelo;
+
+import java.sql.Connection;
+
+import controlador.Conexion;
+
+public class CargaSecciones {
+
+	Conexion miConexion;
+
+	public CargaSecciones() {
+
+		miConexion = new Conexion();
+	}
+	public String ejecutaConsultas() {
+		
+		Productos miProducto=null;
+		Connection accesoBBDD=miConexion.dameConexion();
+		
+		return
+	}
+}

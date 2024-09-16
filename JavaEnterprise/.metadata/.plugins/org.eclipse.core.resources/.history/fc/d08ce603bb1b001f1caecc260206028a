@@ -1,0 +1,21 @@
+package conectaBD;
+
+import java.awt.Font;
+
+import javax.swing.JFrame;
+
+public class AplicacionConsulta {
+
+	public static void main(String[] args) {
+		
+		
+	}
+}
+class VentaConsulta extends JFrame{
+	
+	@Override
+	public Font getFont() {
+		// TODO Auto-generated method stub
+		return super.getFont();
+	}
+}

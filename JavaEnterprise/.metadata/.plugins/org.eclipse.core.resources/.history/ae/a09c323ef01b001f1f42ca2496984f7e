@@ -1,0 +1,12 @@
+package controlador;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class ControladorCargaSecciones extends WindowAdapter{
+C
+	
+	public void windowOpened(WindowEvent e	) {
+		
+	}
+}

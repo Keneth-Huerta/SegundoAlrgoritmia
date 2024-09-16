@@ -1,0 +1,77 @@
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import controlador.ControladorBotonEjecuta;
+import controlador.ControladorCargaMenus;
+
+public class MarcoAplicacion extends JFrame {
+	private JComboBox<String> secciones;
+	private JComboBox<String> paises;
+
+	public JComboBox<String> getPaises() {
+		return paises;
+	}
+
+	public void setPaises(JComboBox<String> paises) {
+		this.paises = paises;
+	}
+
+	public JTextArea getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(JTextArea resultado) {
+		this.resultado = resultado;
+	}
+
+	private JTextArea resultado;
+
+	public MarcoAplicacion() {
+
+		setTitle("Consulta BBDD");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(400, 400);
+		setLocationRelativeTo(null);
+
+		setLayout(new BorderLayout());
+		JPanel lamina1 = new JPanel();
+		JPanel lamina2 = new JPanel();
+		lamina1.setLayout(new FlowLayout());
+
+		secciones = new JComboBox<String>(new String[] { "Todos" });
+		secciones.setEditable(false);
+		paises = new JComboBox<String>(new String[] { "Todos" });
+		resultado = new JTextArea();
+
+		
+		
+		JButton boton = new JButton("Consulta");
+		JButton boton2 = new JButton("Modifica");
+		boton.addActionListener(new ControladorBotonEjecuta(this));
+
+		lamina1.add(secciones);
+		lamina1.add(paises);
+		add(lamina1, BorderLayout.NORTH);
+		add(resultado, BorderLayout.CENTER);
+		lamiaadd(boton, BorderLayout.SOUTH);
+		add(boton, BorderLayout.SOUTH);
+		addWindowListener(new ControladorCargaMenus(this));
+	}
+
+	public JComboBox<String> getSecciones() {
+		return secciones;
+	}
+
+	public void setSecciones(JComboBox<String> secciones) {
+		this.secciones = secciones;
+	}
+
+}

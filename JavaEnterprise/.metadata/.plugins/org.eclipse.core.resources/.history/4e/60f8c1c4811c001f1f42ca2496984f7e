@@ -1,0 +1,9 @@
+package modelo;
+
+public class EjecutaConsultas {
+
+	private String filtraBBDD() {
+		// TODO Auto-generated method stub
+
+	}
+}

@@ -1,0 +1,18 @@
+package com.mime.minefront.graphics;
+
+import java.awt.image.BufferedImage;
+
+public class Texture {
+	public static Render floor = loadBitmap("/textures");
+
+	public static Render loadBitmap(String fileName) {
+
+		try {
+			
+			BufferedImage
+		} catch (Exception e) {
+
+		}
+	}
+
+}

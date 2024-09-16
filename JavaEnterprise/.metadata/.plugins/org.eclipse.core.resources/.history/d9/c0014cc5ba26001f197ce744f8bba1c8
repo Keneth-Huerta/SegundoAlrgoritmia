@@ -1,0 +1,8 @@
+package com.mime.minefront;
+
+public class Launcher {
+
+	public Launcher() {
+		
+	}
+}

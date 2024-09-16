@@ -1,0 +1,9 @@
+package modelo;
+
+import controlador.Conexion;
+
+public class ModificaConsulta {
+	private Conexion miConexion;
+	private Statement miStatement;
+	
+}

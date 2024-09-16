@@ -1,31 +1,31 @@
-// package conectaBD;
+package conectaBD;
 
-// import java.sql.*;
+import java.sql.*;
 
-// public class ConectaPruebas {
+public class ConectaPruebas {
 
-// 	public static void main(String[] args) {
+	public static void main(String[] args) {
 
-// 		// try {
+		try {
 
-		// 	// 1. CREAR CONEXIÓN
-		// 	Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/curso_sql", "root", "");
-		// 	// 2. CREAR OBJETO STATEMENT
-		// 	Statement miStatement = miConexion.createStatement();
-		// 	// 3. EJECUTAR SQL
-		// 	ResultSet miResultset = miStatement.executeQuery("SELECT * FROM PRODUCToS");
-		// 	// 4 RECORRER EL RESULSET
-		// 	while (miResultset.next()) {
+			// 1. CREAR CONEXIÓN
+			Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas", "root", "");
+			// 2. CREAR OBJETO STATEMENT
+			Statement miStatement = miConexion.createStatement();
+			// 3. EJECUTAR SQL
+			ResultSet miResultset = miStatement.executeQuery("SELECT * FROM articulos");
+			// 4 RECORRER EL RESULSET
+			while (miResultset.next()) {
 
-// 		// 		System.out.println(miResultset.getString("SECCIÓN") + " " + miResultset.getString("NOMBREARTÍCULO")
-// 		// 				+ " " + miResultset.getString("CÓDIGOARTÍCULO") + " " + miResultset.getString("PRECIO"));
-// 		// 	}
-// 		// } catch (Exception e) {
+				System.out.println(miResultset.getString("Seccion") + " " + miResultset.getString("NombreArticulo")
+						+ " " + miResultset.getString("CodigoArticulo") + " " + miResultset.getString("Precio"));
+			}
+		} catch (Exception e) {
 
-// 		// 	e.getMessage();
-// 		// 	e.printStackTrace();
-// 		}
+			e.getMessage();
+			e.printStackTrace();
+		}
 
-// 	// }
+	}
 
-// }
+}

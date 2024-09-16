@@ -1,0 +1,21 @@
+package modelo;
+
+public class EjecutaConsultas {
+	private String pruebas;
+	
+	public String filtraBBDD(String seccion, String pais) {
+		
+		
+		if (!seccion.equals("Todos")&&pais.equals("Todos")) {
+
+		
+		}else if (seccion.equals("Todos")&&!pais.equals("Todos")) {
+			
+			
+		}else {
+			
+					
+		}
+		return ;
+	}
+}

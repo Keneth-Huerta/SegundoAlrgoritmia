@@ -1,0 +1,85 @@
+package com.mime.minefront.input;
+
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+
+import javax.swing.event.MouseInputListener;
+
+public class InputHandler implements MouseInputListener, KeyListener, FocusListener {
+	public boolean[] key = new boolean[68836];
+	private int windowWidth;
+	private int windowHeight;
+	public static int MouseX;
+	public static int MouseY;
+	public static int MouseButton;
+
+	public void focusGained(FocusEvent e) {
+
+	}
+
+	public void focusLost(FocusEvent e) {
+
+		for (int i = 0; i < key.length; i++) {
+
+			key[i] = false;
+		}
+	}
+
+	public void mouseDragged(MouseEvent e) {
+
+	}
+
+	public void mouseMoved(MouseEvent e) {
+
+		MouseX = e.getX();
+		MouseY = e.getY();
+		int newX=Math.max(0, Math.min(MouseX, windowWidth));
+		int newy=Math.max(0, Math.min(MouseY, windowHeight));
+		
+	}
+
+	public void mouseClicked(MouseEvent e) {
+
+		MouseButton=e.getButton();
+	}
+
+	public void mousePressed(MouseEvent e) {
+
+	}
+
+	public void mouseReleased(MouseEvent e) {
+
+	}
+
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	public void mouseExited(MouseEvent e) {
+
+	}
+
+	public void keyTyped(KeyEvent e) {
+
+	}
+
+	public void keyPressed(KeyEvent e) {
+
+		int keyCode = e.getKeyCode();
+		if (keyCode > 0 && keyCode < key.length) {
+			key[keyCode] = true;
+		}
+	}
+
+	public void keyReleased(KeyEvent e) {
+		int keyCode = e.getKeyCode();
+		if (keyCode > 0 && keyCode < key.length) {
+
+			key[keyCode] = false;
+		}
+	}
+
+}

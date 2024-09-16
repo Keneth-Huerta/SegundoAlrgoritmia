@@ -1,0 +1,21 @@
+package com.mime.minefront;
+
+import java.io.File;
+
+public class Configuration {
+
+	public void saveConfigurtion(String key, int value) {
+
+		try {
+
+			File file = new File("res/settings/config.xml");
+			boolean exists = file.exists();
+			if (!exists) {
+				file.createNewFile();
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+}

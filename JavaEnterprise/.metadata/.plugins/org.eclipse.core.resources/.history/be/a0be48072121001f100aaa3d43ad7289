@@ -1,0 +1,7 @@
+package com.mime.minefront.graphics;
+
+public class Texture {
+	public static Render floor=loadBitmap("/textures");
+	public static Render loadBit
+	
+}

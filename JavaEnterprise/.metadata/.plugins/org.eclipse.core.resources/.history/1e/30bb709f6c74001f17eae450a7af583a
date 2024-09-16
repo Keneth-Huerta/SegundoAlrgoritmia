@@ -1,0 +1,30 @@
+package ajedrez;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel {
+	int x, y, longitud, largo;
+
+	public Lienzo() {
+		x = x;
+		this.y = y;
+		this.largo = largo;
+		this.longitud = longitud;
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.yellow);
+	}
+
+	public Lienzo(int x, int y, int largo, int longitud) {
+
+		this.x = x;
+		this.y = y;
+		this.largo = largo;
+		this.longitud = longitud;
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.yellow);
+	}
+
+}

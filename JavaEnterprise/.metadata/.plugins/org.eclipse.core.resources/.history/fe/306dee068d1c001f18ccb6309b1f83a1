@@ -1,0 +1,18 @@
+package controlador;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import vista.MarcoAplicacion;
+
+public class ControladorBotonCambia implements ActionListener {
+MarcoAplicacion elmarco=new
+	
+	public ControladorBotonCambia(MarcoAplicacion elmarco) {
+		this.elmarco=elmarco
+	}
+
+	public void actionPerformed(ActionEvent e) {
+
+	}
+}

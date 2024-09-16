@@ -1,0 +1,9 @@
+package modelo;
+
+public class EjecutaConsultas {
+
+	private void met() {
+		// TODO Auto-generated method stub
+
+	}
+}

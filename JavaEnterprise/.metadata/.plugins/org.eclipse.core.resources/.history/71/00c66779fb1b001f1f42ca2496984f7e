@@ -1,0 +1,28 @@
+package modelo;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import controlador.Conexion;
+
+public class CargaSecciones {
+	public ResultSet rs;
+	Conexion miConexion;
+
+	public CargaSecciones() {
+
+		miConexion = new Conexion();
+	}
+
+	public ResultSet ejecutaConsu1tas() {
+		Connection accessoBBDD = miConexion.dameConexion();
+		try {
+			accessoBBDD.createStatement();
+			Statement ecciones = ("SDISTINCTROW SECCIÓN FROM PRODUCTOS");
+			return rs;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+}

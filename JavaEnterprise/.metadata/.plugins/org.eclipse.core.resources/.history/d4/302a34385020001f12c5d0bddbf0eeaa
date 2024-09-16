@@ -1,0 +1,12 @@
+
+public class Prueba3D {
+
+	public Prueba3D() {
+		
+		SimpleUniverse univers= new SimpleUniverse();	
+	}
+
+	public static void main(String[] args) {
+			
+	}
+}

@@ -11,9 +11,15 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\kenet\Dropbox\PC\Downloads\EcuacionSegundoGrado"/>
+			<item value="C:\Users\kenet\OneDrive - Instituto Politecnico Nacional\Documents\JavaEnterprise\Minecraft_Clone-main"/>
+			<item value="C:\Users\kenet\OneDrive - Instituto Politecnico Nacional\Documents\JavaEnterprise\Voxel Engine Tutorial 12"/>
+			<item value="C:\Users\kenet\OneDrive - Instituto Politecnico Nacional\Documents\NetBeansProjects\3d"/>
 			<item value="D:\SegundoAlrgoritmia"/>
 			<item value="E:\SegundoAlrgoritmia"/>
 			<item value="C:\Users\kenet\Dropbox\PC\Downloads\Proyecto - Curso JAVA #42"/>
 		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
 	</section>
 </section>

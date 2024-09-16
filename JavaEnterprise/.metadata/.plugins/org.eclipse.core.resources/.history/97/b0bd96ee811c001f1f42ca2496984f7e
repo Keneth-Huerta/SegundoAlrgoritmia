@@ -1,0 +1,13 @@
+package modelo;
+
+public class EjecutaConsultas {
+	private String pruebas;
+	
+	private String filtraBBDD(String seccion, String pais) {
+		pruebas="";
+		if (!se) {
+			
+		}
+		return null;
+	}
+}

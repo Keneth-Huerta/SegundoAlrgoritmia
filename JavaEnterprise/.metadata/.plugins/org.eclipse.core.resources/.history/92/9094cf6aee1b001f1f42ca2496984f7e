@@ -1,0 +1,17 @@
+package modelo;
+
+import controlador.Conexion;
+
+public class CargaSecciones {
+
+	Conexion miConexion;
+
+	public CargaSecciones() {
+
+		miConexion = new Conexion();
+	}
+	public String ejecutaConsultas() {
+		
+		Productos miProducto=
+	}
+}

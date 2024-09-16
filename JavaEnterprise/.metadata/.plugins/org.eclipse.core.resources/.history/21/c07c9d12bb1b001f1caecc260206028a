@@ -1,0 +1,19 @@
+package conectaBD;
+
+import javax.swing.JFrame;
+
+public class AplicacionConsulta {
+
+	public static void main(String[] args) {
+		
+		
+	}
+}
+class VentaConsulta extends JFrame{
+	
+	public VentaConsulta() {
+	
+		
+	}
+}
+

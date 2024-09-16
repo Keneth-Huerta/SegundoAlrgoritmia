@@ -1,0 +1,24 @@
+package com.mime.minefront.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+
+public class Options extends Launcher {
+
+	private static final long serialVersionUID = -7743258581038005972L;
+	private int width = 540, height = 440;
+
+	public Options() {
+		super(1);
+		setTitle("Options - Minefront Launcher");
+		setSize(new Dimension(width, height));
+		setLocationRelativeTo(null);
+		drawButtons();
+	}
+
+	private void drawButtons() {
+
+		OK=new JButton()
+	}
+}

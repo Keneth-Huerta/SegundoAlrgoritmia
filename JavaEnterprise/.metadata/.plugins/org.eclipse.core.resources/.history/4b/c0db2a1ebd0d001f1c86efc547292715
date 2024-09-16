@@ -1,0 +1,23 @@
+package graficos;
+
+import javax.swing.JFrame;
+
+public class PruebaLista {
+
+	public static void main(String[] args) {
+
+		JFrame mimarco = new MarcoDeLista();
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mimarco.setVisible(true);
+	}
+
+}
+
+class MarcoDeLista extends JFrame {
+
+	public MarcoDeLista() {
+
+		setTitle("Prueba de lista");
+		setBounds(400, 300, 400, 300);
+	}
+}

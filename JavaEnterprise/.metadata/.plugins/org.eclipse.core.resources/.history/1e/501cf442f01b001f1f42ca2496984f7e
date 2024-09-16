@@ -1,0 +1,14 @@
+package controlador;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import modelo.CargaSecciones;
+
+public class ControladorCargaSecciones extends WindowAdapter{
+CargaSecciones obj=new CargaSecciones();
+	
+	public void windowOpened(WindowEvent e	) {
+		
+	}
+}

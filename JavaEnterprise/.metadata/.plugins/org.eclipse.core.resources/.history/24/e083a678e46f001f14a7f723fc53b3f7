@@ -1,0 +1,14 @@
+package lienzo;
+
+import javax.swing.JFrame;
+
+public class VentanaLienzo extends JFrame {
+
+	public VentanaLienzo() {
+
+		setTitle("algo");
+		pack();
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+	}
+}

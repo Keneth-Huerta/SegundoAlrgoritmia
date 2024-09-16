@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="NarutoMod-1.12.2-0.3.0.beta">
+        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/" source-path="/ImportedClasses"/>
+        <property name="java-output-path" value="/NarutoMod-1.12.2-0.3.0.beta/build/classes"/>
+    </wb-module>
+</project-modules>
