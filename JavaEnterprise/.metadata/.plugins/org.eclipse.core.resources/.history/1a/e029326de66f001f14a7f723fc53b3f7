@@ -1,0 +1,88 @@
+package lienzo;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LIenzoDibujo extends JPanel {
+	int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+	JPanel ventanaDialogo;
+
+	public LIenzoDibujo() {
+
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.RED);
+
+		 ventanaDialogo = new JPanel();
+
+		JLabel outputX1 = new JLabel("x1: ");
+		JTextField inputX1 = new JTextField(10);
+		JLabel outputY1 = new JLabel("y1: ");
+		JTextField inputY1 = new JTextField(10);
+		JLabel outputX2 = new JLabel("x2: ");
+		JTextField inputX2 = new JTextField(10);
+		JLabel outputY2 = new JLabel("y2: ");
+		JTextField inputY2 = new JTextField(10);
+
+		JButton boton1 = new JButton("Agregar");
+
+		ventanaDialogo.add(boton1);
+		ventanaDialogo.add(boton1);
+		ventanaDialogo.add(boton1);
+		ventanaDialogo.add(boton1);
+		add(ventanaDialogo);
+	}
+
+	private void generar() {
+		JLabel outputX1 = new JLabel("x1: ");
+		JTextField inputX1 = new JTextField(10);
+		ventanaDialogo.add(boton1);
+	}
+
+	public int getX1() {
+		return x1;
+	}
+
+	public void setX1(int x1) {
+		this.x1 = x1;
+	}
+
+	public int getX2() {
+		return x2;
+	}
+
+	public void setX2(int x2) {
+		this.x2 = x2;
+	}
+
+	public int getY1() {
+		return y1;
+	}
+
+	public void setY1(int y1) {
+		this.y1 = y1;
+	}
+
+	public int getY2() {
+		return y2;
+	}
+
+	public void setY2(int y2) {
+		this.y2 = y2;
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		Line2D linea = new Line2D.Double(x1, y1, x2, y2);
+	}
+}

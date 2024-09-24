@@ -1,0 +1,14 @@
+package ajedrez;
+
+public class Tablero {
+public Tablero() {
+	// TODO Auto-generated constructor stub
+}
+	
+	
+	public void dibujar() {
+
+		
+	}
+	
+}

@@ -1,0 +1,9 @@
+package ajedrez;
+
+public class Tablero {
+
+	private void dibujar() {
+		// TODO Auto-generated method stub
+
+	}
+}

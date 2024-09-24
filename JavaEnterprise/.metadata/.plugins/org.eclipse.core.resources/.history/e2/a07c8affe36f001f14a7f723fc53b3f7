@@ -1,0 +1,29 @@
+package lienzo;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel {
+	int x1, x2, y1, y2;
+
+	public LIenzoDibujo() {
+
+		x
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.RED);
+
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		Line2D linea = new Line2D.Double(x);
+	}
+}

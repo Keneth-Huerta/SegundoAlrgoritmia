@@ -1,0 +1,14 @@
+package ajedrez;
+
+public class Tablero {
+	
+	
+	public Tablero() {
+
+	}
+
+	public void dibujar() {
+
+	}
+
+}

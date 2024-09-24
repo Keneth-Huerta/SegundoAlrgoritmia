@@ -1,0 +1,6 @@
+package lienzo;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel{
+}

@@ -1,0 +1,15 @@
+package ajedrez;
+
+public class Tablero {
+	int x, y, longitud, largo;
+
+	public Tablero(int x, int y, int largo, int longitud) {
+
+		int
+	}
+
+	public void dibujar() {
+
+	}
+
+}

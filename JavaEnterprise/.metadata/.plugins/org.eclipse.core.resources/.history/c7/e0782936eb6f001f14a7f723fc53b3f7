@@ -1,0 +1,112 @@
+package lienzo;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LIenzoDibujo extends JPanel {
+	private int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+	JPanel ventanaDialogo;
+	JTextField Ox1, Oy1, Ox2, Oy2;
+	ArrayList<Line2D> lineas;
+
+	public LIenzoDibujo() {
+		setLayout(new BorderLayout());
+
+		ventanaDialogo = new JPanel();
+
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.RED);
+
+		Ox1 = new JTextField(5);
+		Oy1 = new JTextField(5);
+		Ox2 = new JTextField(5);
+		Oy2 = new JTextField(5);
+
+		generar(Ox1, "x1: ");
+		generar(Oy1, "y1: ");
+		generar(Ox2, "x2: ");
+		generar(Oy2, "y2: ");
+
+		JButton boton = new JButton("Agregar");
+		boton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				setX1(Integer.valueOf(Ox1.getText()));
+				setY1(Integer.valueOf(Oy1.getText()));
+				setX2(Integer.valueOf(Ox2.getText()));
+				setY2(Integer.valueOf(Oy2.getText()));
+				
+				repaint();
+			}
+		});
+		ventanaDialogo.add(boton);
+
+		add(ventanaDialogo, BorderLayout.SOUTH);
+	}
+
+	private void generar(JTextField obj, String string) {
+
+		JLabel outputX = new JLabel(string);
+		ventanaDialogo.add(outputX);
+		ventanaDialogo.add(obj);
+	}
+
+	public int getX1() {
+		return x1;
+	}
+
+	public void setX1(int x1) {
+		this.x1 = x1;
+	}
+
+	public int getX2() {
+		return x2;
+	}
+
+	public void setX2(int x2) {
+		this.x2 = x2;
+	}
+
+	public int getY1() {
+		return y1;
+	}
+
+	public void setY1(int y1) {
+		this.y1 = y1;
+	}
+
+	public int getY2() {
+		return y2;
+	}
+
+	public void setY2(int y2) {
+		this.y2 = y2;
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		// Line2D linea = new Line2D.Double(x1, y1, x2, y2);
+		for (Linea2D line : Lineas) {
+
+		}
+		g2.setColor(Color.blue);
+		g2.draw(linea);
+	}
+}

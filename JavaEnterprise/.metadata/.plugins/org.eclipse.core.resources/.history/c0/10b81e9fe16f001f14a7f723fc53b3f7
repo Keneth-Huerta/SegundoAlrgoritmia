@@ -1,0 +1,19 @@
+package lienzo;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel{
+	
+	public LIenzoDibujo() {
+		
+		
+	}
+	@Override
+	protected void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		
+	}
+}
