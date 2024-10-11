@@ -1,0 +1,30 @@
+package grafica;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Lienzo extends JPanel {
+
+	public Lienzo() {
+
+		setPreferredSize(new Dimension(300, 400));
+
+		JButton btn = new JButton("Checar");
+		JTextField tfld = new JTextField();
+		JPanel lamina=new JPanel();
+		
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+	}
+}

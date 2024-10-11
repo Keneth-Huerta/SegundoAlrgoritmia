@@ -1,0 +1,40 @@
+package examen;
+
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
+
+public class Rombo {
+	private static int x, y, ancho, filas;
+
+	public Rombo(int x, int y, int ancho, int filas) {
+		this.x = x;
+		this.y = y;
+		this.ancho = ancho;
+		this.filas = filas;
+	}
+
+	 public void dibujar(Graphics2D g) {
+	        int inicio = 0, fin = filas;
+	        boolean creciendo = true;
+
+	        for (int i = 0; i < filas * 2 - 1; i++) {
+	            for (int j = inicio; j < fin; j++) {
+	                Rectangle2D rec = new Rectangle2D.Double(x + j * ancho, y + i * ancho, ancho, ancho);
+	                g.draw(rec);
+	            }
+
+	            if (creciendo) {
+	                inicio--;
+	                fin++;
+	                if (fin > filas) {
+	                    creciendo = false;
+	                    inicio = 1;
+	                    fin = filas;
+	                }
+	            } else {
+	                inicio++;
+	                fin--;
+	            }
+	        }
+
+}

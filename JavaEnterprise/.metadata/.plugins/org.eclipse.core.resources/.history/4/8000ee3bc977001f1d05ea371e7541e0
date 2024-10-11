@@ -1,0 +1,28 @@
+package grafica;
+
+public class Grafica {
+	String[] numeros;
+
+	public Grafica() {
+
+	}
+
+	public void dibujar() {
+
+	}
+
+	public int calcular(int numero) {
+		int c = 0;
+
+		for (String string : numeros) {
+			
+		}
+
+			if (c==) {
+				
+			}
+		
+
+		return c;
+	}
+}

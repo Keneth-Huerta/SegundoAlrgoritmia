@@ -1,0 +1,14 @@
+package examen;
+
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel{
+
+	public Lienzo() {
+		
+		setPreferredSize(new Dimension(500,500));
+		sets
+	}
+}

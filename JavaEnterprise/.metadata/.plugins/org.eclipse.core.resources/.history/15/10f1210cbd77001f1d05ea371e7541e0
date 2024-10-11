@@ -1,0 +1,13 @@
+package grafica;
+
+public class Grafica {
+
+
+	public Grafica() {
+		// TODO Auto-generated constructor stub
+	}private void dibujar() {
+		// TODO Auto-generated method stub
+
+	}
+}
+

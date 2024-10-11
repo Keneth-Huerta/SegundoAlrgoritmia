@@ -1,0 +1,21 @@
+package grafica;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel {
+
+	public Lienzo() {
+
+		setPreferredSize(new Dimension(300, 400));
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+
+	}
+}

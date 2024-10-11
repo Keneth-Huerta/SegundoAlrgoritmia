@@ -1,0 +1,26 @@
+package examen;
+
+import java.util.Iterator;
+
+public class Rombo {
+	private static int x, y, ancho, filas;
+
+	public Rombo(int x, int y, int ancho, int filas) {
+		this.x = x;
+		this.y = y;
+		this.ancho = ancho;
+		this.filas = filas;
+	}
+
+	public static void dibujar() {
+		
+		int 
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < fin; j++) {
+				
+			}
+		}
+		
+	}
+
+}
