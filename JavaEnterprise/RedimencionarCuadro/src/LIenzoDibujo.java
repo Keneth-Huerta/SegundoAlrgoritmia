@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -15,7 +14,6 @@ public class LIenzoDibujo extends JPanel implements MouseListener, MouseMotionLi
 	private int x = 150, y = 150, width = 300, height = 200;
 	boolean pintar, r, l, t, b;
 	Rectangle2D linea, linea1, linea2, linea3, linea4;
-	ArrayList<Rectangle2D> lista = new ArrayList<Rectangle2D>();
 
 	public LIenzoDibujo() {
 		setPreferredSize(new Dimension(500, 500));
