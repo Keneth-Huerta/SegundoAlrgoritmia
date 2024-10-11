@@ -1,0 +1,22 @@
+package examen;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel{
+
+	public Lienzo() {
+		
+		setPreferredSize(new Dimension(500,500));
+		
+		setLayout(new BorderLayout());
+		
+		JLabel lb1=new JLabel("");
+		JLabel lb2=new JLabel("");
+		JLabel lb3=new JLabel("");
+		JLabel lb4=new JLabel("");
+	}
+}

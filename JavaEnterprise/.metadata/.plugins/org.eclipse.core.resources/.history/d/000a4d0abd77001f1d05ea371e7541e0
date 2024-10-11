@@ -1,0 +1,10 @@
+package grafica;
+
+public class Grafica {
+
+
+	public Grafica() {
+		// TODO Auto-generated constructor stub
+	}
+}
+

@@ -1,0 +1,10 @@
+package grafica;
+
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel{
+
+	public Lienzo() {
+		// TODO Auto-generated constructor stub
+	}
+}

@@ -1,0 +1,16 @@
+package grafica;
+
+public class Grafica {
+
+	public Grafica() {
+
+	}
+
+	private void dibujar() {
+
+	}
+	private void calcular() {
+		// TODO Auto-generated method stub
+
+	}
+}

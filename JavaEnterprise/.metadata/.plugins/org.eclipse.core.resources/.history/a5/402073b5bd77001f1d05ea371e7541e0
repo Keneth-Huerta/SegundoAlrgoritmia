@@ -1,0 +1,22 @@
+package grafica;
+
+public class Grafica {
+
+	public Grafica() {
+
+	}
+
+	public void dibujar() {
+
+	}
+
+	public int calcular(int numero) {
+		int c = 0;
+
+		for (int i = 0; i < numer; i++) {
+			
+		}
+		
+		return c;
+	}
+}
