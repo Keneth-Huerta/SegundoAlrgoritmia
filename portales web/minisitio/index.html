@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Sitio Web</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        section {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        section:nth-child(1) { background-color: rgba(255, 0, 0, 0.2); }
+        section:nth-child(2) { background-color: rgba(0, 255, 0, 0.2); }
+        section:nth-child(3) { background-color: rgba(0, 0, 255, 0.2); }
+        section:nth-child(4) { background-color: rgba(255, 255, 0, 0.2); }
+        section:nth-child(5) { background-color: rgba(255, 0, 255, 0.2); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <i class="icon fas fa-home"></i>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+        </section>
+        <section>
+            <i class="icon fas fa-user"></i>
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        </section>
+        <section>
+            <i class="icon fas fa-cog"></i>
+            <p>Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+        </section>
+        <section>
+            <i class="icon fas fa-envelope"></i>
+            <p>Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus.</p>
+        </section>
+        <section>
+            <i class="icon fas fa-chart-bar"></i>
+            <p>Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.</p>
+        </section>
+    </div>
+</body>
+</html>
