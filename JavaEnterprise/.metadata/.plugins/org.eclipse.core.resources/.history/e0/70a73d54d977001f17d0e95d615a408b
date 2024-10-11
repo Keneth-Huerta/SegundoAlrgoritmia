@@ -1,0 +1,86 @@
+package grafica;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+import java.util.Random;
+
+public class Grafica {
+	static String[] numeros;
+	static Color[] col = new Color[7];;
+
+	public Grafica(String[] numeros) {
+
+		Grafica.numeros = numeros;
+	}
+
+	public static void dibujar(Graphics2D g) {
+
+		Line2D lin = new Line2D.Double(25, 30, 25, 360);
+		g.draw(lin);
+
+		for (int i = 5; i <= 10; i++) {
+
+			Rectangle2D rec = new Rectangle2D.Double(10 * (i - 4) + 30 * (i - 4) - 5,
+					360 - (calcular(i) / (baseD() / 10) * 30), 30, calcular(i) / (baseD() / 10) * 30);
+			g.setColor(getcolor(i - 4));
+			g.fill(rec);
+			g.setColor(Color.BLACK);
+			g.drawString(Integer.toString(i), 10 * (i - 4) + 30 * (i - 4) + 5, 380);
+
+		}
+		Lienzo.setColor(false);
+		for (int i = 0; i <= 10; i++) {
+
+			g.drawString(Integer.toString(i), 10, 420 - (60 + 30 * i/10));
+			Line2D lin2 = new Line2D.Double(25, 360, 275, 360);
+			g.draw(lin2);
+		}
+	}
+
+	public static Color getcolor(int i) {
+		Random rm = new Random();
+
+		if (Lienzo.isColor()) {
+			col[i] = new Color(rm.nextInt(255), rm.nextInt(255), rm.nextInt(255));
+		}
+		return col[i];
+	}
+
+	public static int calcular(int numero) {
+		int c = 0;
+
+		for (String string : numeros) {
+
+			int num = Integer.parseInt(string);
+			if (numero == num) {
+				c++;
+			}
+		}
+		return c;
+	}
+
+	public static int baseD() {
+
+		int c = maxR();
+		while (c % 10 != 0) {
+			c++;
+		}
+
+		return c;
+	}
+
+	public static int maxR() {
+
+		int c = 0;
+		for (int i = 5; i <= 10; i++) {
+			if (c < calcular(i)) {
+
+				c = calcular(i);
+			}
+		}
+
+		return c;
+	}
+}

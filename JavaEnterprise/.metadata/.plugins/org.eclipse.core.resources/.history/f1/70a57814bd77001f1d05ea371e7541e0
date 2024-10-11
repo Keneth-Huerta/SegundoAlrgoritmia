@@ -1,0 +1,12 @@
+package grafica;
+
+public class Grafica {
+
+	public Grafica() {
+
+	}
+
+	private void dibujar() {
+
+	}
+}

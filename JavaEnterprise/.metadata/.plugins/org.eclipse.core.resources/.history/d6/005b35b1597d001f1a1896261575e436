@@ -1,0 +1,19 @@
+package examen;
+
+public class Rombo {
+	private static int x, y, ancho, filas;
+
+	public Rombo(int x, int y, int ancho, int filas) {
+		this.x = x;
+		this.y = y;
+		this.ancho = ancho;
+		this.filas = filas;
+	}
+
+	public static void dibujar() {
+		
+		
+		
+	}
+
+}

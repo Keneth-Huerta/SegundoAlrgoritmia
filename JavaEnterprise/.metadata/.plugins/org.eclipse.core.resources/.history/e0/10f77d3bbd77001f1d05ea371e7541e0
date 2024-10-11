@@ -1,0 +1,18 @@
+package grafica;
+
+public class Grafica {
+
+	public Grafica() {
+
+	}
+
+	public void dibujar() {
+
+	}
+
+	public int calcular(String[] numeros) {
+		int c = 0;
+
+		return c;
+	}
+}

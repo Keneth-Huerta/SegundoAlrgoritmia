@@ -1,0 +1,8 @@
+package grafica;
+
+public class Lienzo extends {
+
+	public Lienzo() {
+		// TODO Auto-generated constructor stub
+	}
+}

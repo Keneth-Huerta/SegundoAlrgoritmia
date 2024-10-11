@@ -1,0 +1,28 @@
+package grafica;
+
+import java.awt.Graphics2D;
+
+public class Grafica {
+	String[] numeros;
+
+	public Grafica() {
+
+	}
+
+	public void dibujar(Graphics2D g) {
+
+	}
+
+	public int calcular(int numero) {
+		int c = 0;
+
+		for (String string : numeros) {
+
+			int num = Integer.parseInt(string);
+			if (c == num) {
+				c++;
+			}
+		}
+		return c;
+	}
+}
