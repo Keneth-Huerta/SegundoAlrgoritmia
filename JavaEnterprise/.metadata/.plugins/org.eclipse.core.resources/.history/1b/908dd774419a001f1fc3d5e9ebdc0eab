@@ -1,0 +1,30 @@
+package lienzo;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LIenzoDibujo extends JPanel  {
+	private int x1 = 0, x2 = 0, y1 = 0, y2 = 0, c = 0;;
+	JPanel ventanaDialogo;
+	JTextField Ox1, Oy1, Ox2, Oy2;
+	ArrayList<Line2D> lineas;
+	boolean uno;
+
+	public LIenzoDibujo() {
+
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+	}
+
+	}

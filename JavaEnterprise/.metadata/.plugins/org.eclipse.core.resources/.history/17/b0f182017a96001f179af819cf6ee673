@@ -1,0 +1,35 @@
+package gamificaciondeportiva;
+
+//Clase para gestionar logros
+class Logro {
+ private String id;
+ private String nombre;
+ private String descripcion;
+ private int puntosRecompensa;
+ private boolean completado;
+ private TipoLogro tipo;
+
+ public enum TipoLogro {
+     DISTANCIA, TIEMPO, FRECUENCIA, SOCIAL, ESPECIAL
+ }
+
+ public Logro(String id, String nombre, String descripcion, int puntosRecompensa, TipoLogro tipo) {
+     this.id = id;
+     this.nombre = nombre;
+     this.descripcion = descripcion;
+     this.puntosRecompensa = puntosRecompensa;
+     this.completado = false;
+     this.tipo = tipo;
+ }
+
+ public void completarLogro() {
+     if (!completado) {
+         this.completado = true;
+         System.out.println("¡Logro desbloqueado: " + this.nombre + "!");
+     }
+ }
+}
+
+
+
+	

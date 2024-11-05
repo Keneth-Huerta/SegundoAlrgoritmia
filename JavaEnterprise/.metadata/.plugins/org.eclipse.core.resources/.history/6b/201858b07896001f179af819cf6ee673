@@ -1,0 +1,645 @@
+package gamificaciondeportiva;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+
+import gamificaciondeportiva.ActividadDeportiva.TipoDeporte;
+
+// Clase principal con interfaz gráfica
+public class MainGamificacionDeportiva extends JFrame {
+    private SistemaGamificacion sistema;
+    private Usuario usuarioActual;
+    private JTabbedPane tabbedPane;
+    private JPanel panelPerfil;
+    private JPanel panelActividades;
+    private JPanel panelLogros;
+    private JPanel panelDesafios;
+    private JPanel panelCompetencias;
+
+    public MainGamificacionDeportiva() {
+        sistema = new SistemaGamificacion();
+        // Crear usuario de prueba
+        usuarioActual = new Usuario("U001", "Usuario Prueba");
+        sistema.getUsuarios().add(usuarioActual);
+
+        configurarVentana();
+        inicializarComponentes();
+    }	
+
+    private void configurarVentana() {
+        setTitle("Gamificación Deportiva");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+    }
+
+    private void inicializarComponentes() {
+        // Crear panel de pestañas
+        tabbedPane = new JTabbedPane();
+        
+        // Inicializar paneles
+        inicializarPanelPerfil();
+        inicializarPanelActividades();
+        inicializarPanelLogros();
+        inicializarPanelDesafios();
+        inicializarPanelCompetencias();
+
+        // Agregar pestañas
+        tabbedPane.addTab("Perfil", new ImageIcon(), panelPerfil, "Perfil de usuario");
+        tabbedPane.addTab("Actividades", new ImageIcon(), panelActividades, "Registro de actividades");
+        tabbedPane.addTab("Logros", new ImageIcon(), panelLogros, "Logros disponibles");
+        tabbedPane.addTab("Desafíos", new ImageIcon(), panelDesafios, "Desafíos activos");
+        tabbedPane.addTab("Competencias", new ImageIcon(), panelCompetencias, "Competencias disponibles");
+
+        add(tabbedPane, BorderLayout.CENTER);
+    }
+
+    private void inicializarPanelPerfil() {
+        panelPerfil = new JPanel(new BorderLayout(10, 10));
+        panelPerfil.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Panel de información básica
+        JPanel infoPerfil = new JPanel(new GridLayout(4, 2, 5, 5));
+        infoPerfil.add(new JLabel("ID:"));
+        infoPerfil.add(new JLabel(usuarioActual.getId()));
+        infoPerfil.add(new JLabel("Nombre:"));
+        infoPerfil.add(new JLabel(usuarioActual.getNombre()));
+        infoPerfil.add(new JLabel("Nivel:"));
+        infoPerfil.add(new JLabel(String.valueOf(usuarioActual.getNivel())));
+        infoPerfil.add(new JLabel("Puntos Totales:"));
+        infoPerfil.add(new JLabel(String.valueOf(usuarioActual.getPuntosTotales())));
+
+        // Barra de progreso de experiencia
+        JProgressBar progressExperiencia = new JProgressBar(0, 1000);
+        progressExperiencia.setValue(usuarioActual.getExperiencia() % 1000);
+        progressExperiencia.setStringPainted(true);
+        progressExperiencia.setString("Experiencia: " + usuarioActual.getExperiencia() % 1000 + "/1000");
+
+        panelPerfil.add(infoPerfil, BorderLayout.NORTH);
+        panelPerfil.add(progressExperiencia, BorderLayout.CENTER);
+    }
+
+    private void inicializarPanelActividades() {
+        panelActividades = new JPanel(new BorderLayout(10, 10));
+        panelActividades.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Panel de formulario
+        JPanel formulario = new JPanel(new GridLayout(5, 2, 5, 5));
+        
+        JComboBox<TipoDeporte> comboDeporte = new JComboBox<>(TipoDeporte.values());
+        JTextField txtDuracion = new JTextField();
+        JTextField txtDistancia = new JTextField();
+        JButton btnRegistrar = new JButton("Registrar Actividad");
+
+        formulario.add(new JLabel("Tipo de Deporte:"));
+        formulario.add(comboDeporte);
+        formulario.add(new JLabel("Duración (minutos):"));
+        formulario.add(txtDuracion);
+        formulario.add(new JLabel("Distancia (km):"));
+        formulario.add(txtDistancia);
+        formulario.add(new JLabel(""));
+        formulario.add(btnRegistrar);
+
+        // Tabla de actividades recientes
+        String[] columnas = {"Fecha", "Deporte", "Duración", "Distancia", "Calorías"};
+        DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0);
+        JTable tablaActividades = new JTable(modeloTabla);
+        JScrollPane scrollTabla = new JScrollPane(tablaActividades);
+
+        btnRegistrar.addActionListener(e -> {
+            try {
+                TipoDeporte tipo = (TipoDeporte) comboDeporte.getSelectedItem();
+                int duracion = Integer.parseInt(txtDuracion.getText());
+                double distancia = Double.parseDouble(txtDistancia.getText());
+
+                ActividadDeportiva actividad = new ActividadDeportiva(
+                    "A" + System.currentTimeMillis(),
+                    tipo,
+                    duracion,
+                    distancia,
+                    usuarioActual
+                );
+
+                sistema.registrarActividad(actividad);
+                
+                // Actualizar tabla
+                modeloTabla.addRow(new Object[]{
+                    actividad.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
+                    tipo,
+                    duracion + " min",
+                    distancia + " km",
+                    actividad.getCaloriasQuemadas()
+                });
+
+                // Limpiar campos
+                txtDuracion.setText("");
+                txtDistancia.setText("");
+                JOptionPane.showMessageDialog(this, "Actividad registrada con éxito!");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, 
+                    "Por favor, ingrese valores numéricos válidos", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        panelActividades.add(formulario, BorderLayout.NORTH);
+        panelActividades.add(scrollTabla, BorderLayout.CENTER);
+    }
+
+    private void inicializarPanelLogros() {
+        panelLogros = new JPanel(new BorderLayout(10, 10));
+        panelLogros.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Lista de logros
+        DefaultListModel<String> modeloLista = new DefaultListModel<>();
+        for (Logro logro : sistema.getLogrosDisponibles()) {
+            modeloLista.addElement(logro.getNombre() + " - " + logro.getDescripcion());
+        }
+        JList<String> listaLogros = new JList<>(modeloLista);
+        listaLogros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        JScrollPane scrollLogros = new JScrollPane(listaLogros);
+        panelLogros.add(scrollLogros, BorderLayout.CENTER);
+    }
+
+    private void inicializarPanelDesafios() {
+        panelDesafios = new JPanel(new BorderLayout(10, 10));
+        panelDesafios.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Panel de desafíos activos
+        JPanel desafiosActivos = new JPanel(new GridLayout(0, 1, 5, 5));
+        for (Desafio desafio : sistema.getDesafiosActivos()) {
+            JPanel panelDesafio = new JPanel(new BorderLayout());
+            panelDesafio.setBorder(BorderFactory.createTitledBorder(desafio.getNombre()));
+            
+            JLabel lblDescripcion = new JLabel(desafio.getDescripcion());
+            JButton btnUnirse = new JButton("Unirse al desafío");
+            
+            btnUnirse.addActionListener(e -> {
+                desafio.unirseAlDesafio(usuarioActual);
+                btnUnirse.setEnabled(false);
+                btnUnirse.setText("Unido");
+            });
+
+            panelDesafio.add(lblDescripcion, BorderLayout.CENTER);
+            panelDesafio.add(btnUnirse, BorderLayout.EAST);
+            
+            desafiosActivos.add(panelDesafio);
+        }
+
+        JScrollPane scrollDesafios = new JScrollPane(desafiosActivos);
+        panelDesafios.add(scrollDesafios, BorderLayout.CENTER);
+    }
+
+    private void inicializarPanelCompetencias() {
+        panelCompetencias = new JPanel(new BorderLayout(10, 10));
+        panelCompetencias.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Tabla de competencias
+        String[] columnas = {"Nombre", "Deporte", "Fecha Inicio", "Fecha Fin", "Estado", "Acción"};
+        DefaultTableModel modeloTabla = new DefaultTableModel(columnas, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == 5; // Solo la columna de acción es editable
+            }
+        };
+        
+        JTable tablaCompetencias = new JTable(modeloTabla);
+        JScrollPane scrollTabla = new JScrollPane(tablaCompetencias);
+
+        // Agregar algunas competencias de ejemplo
+        for (Competencia competencia : sistema.getCompetencias()) {
+            modeloTabla.addRow(new Object[]{
+                competencia.getNombre(),
+                competencia.getTipoDeporte(),
+                competencia.getFechaInicio().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                competencia.getFechaFin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                competencia.getEstado(),
+                "Inscribirse"
+            });
+        }
+
+        panelCompetencias.add(scrollTabla, BorderLayout.CENTER);
+    }
+
+    public static void main(String[] args) {
+        try {
+            // Establecer el look and feel del sistema
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        SwingUtilities.invokeLater(() -> {
+            MainGamificacionDeportiva ventana = new MainGamificacionDeportiva();
+            ventana.setVisible(true);
+        });
+    }
+
+	public SistemaGamificacion getSistema() {
+		return sistema;
+	}
+
+	public void setSistema(SistemaGamificacion sistema) {
+		this.sistema = sistema;
+	}
+
+	public Usuario getUsuarioActual() {
+		return usuarioActual;
+	}
+
+	public void setUsuarioActual(Usuario usuarioActual) {
+		this.usuarioActual = usuarioActual;
+	}
+
+	public JTabbedPane getTabbedPane() {
+		return tabbedPane;
+	}
+
+	public void setTabbedPane(JTabbedPane tabbedPane) {
+		this.tabbedPane = tabbedPane;
+	}
+
+	public JPanel getPanelPerfil() {
+		return panelPerfil;
+	}
+
+	public void setPanelPerfil(JPanel panelPerfil) {
+		this.panelPerfil = panelPerfil;
+	}
+
+	public JPanel getPanelActividades() {
+		return panelActividades;
+	}
+
+	public void setPanelActividades(JPanel panelActividades) {
+		this.panelActividades = panelActividades;
+	}
+
+	public JPanel getPanelLogros() {
+		return panelLogros;
+	}
+
+	public void setPanelLogros(JPanel panelLogros) {
+		this.panelLogros = panelLogros;
+	}
+
+	public JPanel getPanelDesafios() {
+		return panelDesafios;
+	}
+
+	public void setPanelDesafios(JPanel panelDesafios) {
+		this.panelDesafios = panelDesafios;
+	}
+
+	public JPanel getPanelCompetencias() {
+		return panelCompetencias;
+	}
+
+	public void setPanelCompetencias(JPanel panelCompetencias) {
+		this.panelCompetencias = panelCompetencias;
+	}
+}
+
+// Clase principal para gestionar usuarios
+ class Usuario {
+    private String id;
+    private String nombre;
+    private int nivel;
+    private int puntosTotales;
+    private int experiencia;
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+
+	public int getPuntosTotales() {
+		return puntosTotales;
+	}
+
+	public void setPuntosTotales(int puntosTotales) {
+		this.puntosTotales = puntosTotales;
+	}
+
+	public int getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(int experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public List<Logro> getLogrosObtenidos() {
+		return logrosObtenidos;
+	}
+
+	public void setLogrosObtenidos(List<Logro> logrosObtenidos) {
+		this.logrosObtenidos = logrosObtenidos;
+	}
+
+	public List<Desafio> getDesafiosActivos() {
+		return desafiosActivos;
+	}
+
+	public void setDesafiosActivos(List<Desafio> desafiosActivos) {
+		this.desafiosActivos = desafiosActivos;
+	}
+
+	private List<Logro> logrosObtenidos;
+    private List<Desafio> desafiosActivos;
+
+    public Usuario(String id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nivel = 1;	
+        this.puntosTotales = 0;
+        this.experiencia = 0;
+        this.logrosObtenidos = new ArrayList<>();
+        this.desafiosActivos = new ArrayList<>();
+    }
+
+    public void ganarPuntos(int puntos) {
+        this.puntosTotales += puntos;
+        ganarExperiencia(puntos);
+    }
+
+    public void ganarExperiencia(int exp) {
+        this.experiencia += exp;
+        verificarNivel();
+    }
+
+    private void verificarNivel() {
+        // Cada 1000 puntos de experiencia sube un nivel
+        int nuevoNivel = (this.experiencia / 1000) + 1;
+        if (nuevoNivel > this.nivel) {
+            this.nivel = nuevoNivel;
+            System.out.println("¡Felicidades! Has alcanzado el nivel " + this.nivel);
+        }
+    }
+}
+
+// Clase para gestionar logros
+ class Logro {
+    private String id;
+    private String nombre;
+    private String descripcion;
+    private int puntosRecompensa;
+    private boolean completado;
+    private TipoLogro tipo;
+
+    public enum TipoLogro {
+        DISTANCIA, TIEMPO, FRECUENCIA, SOCIAL, ESPECIAL
+    }
+
+    public Logro(String id, String nombre, String descripcion, int puntosRecompensa, TipoLogro tipo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.puntosRecompensa = puntosRecompensa;
+        this.completado = false;
+        this.tipo = tipo;
+    }
+
+    public void completarLogro() {
+        if (!completado) {
+            this.completado = true;
+            System.out.println("¡Logro desbloqueado: " + this.nombre + "!");
+        }
+    }
+}
+
+// Clase para gestionar desafíos
+ class Desafio {
+    private String id;
+    private String nombre;
+    private String descripcion;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
+    private int puntosRecompensa;
+    private List<Usuario> participantes;
+    private EstadoDesafio estado;
+
+    public enum EstadoDesafio {
+        PENDIENTE, ACTIVO, COMPLETADO, EXPIRADO
+    }
+
+    public Desafio(String id, String nombre, String descripcion, int puntosRecompensa, 
+                   LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.puntosRecompensa = puntosRecompensa;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.participantes = new ArrayList<>();
+        this.estado = EstadoDesafio.PENDIENTE;
+    }
+
+    public void unirseAlDesafio(Usuario usuario) {
+        if (!participantes.contains(usuario)) {
+            participantes.add(usuario);
+            System.out.println(usuario.getNombre() + " se ha unido al desafío: " + this.nombre);
+        }
+    }
+}
+
+// Clase para gestionar actividades deportivas
+ class ActividadDeportiva {
+    private String id;
+    private TipoDeporte tipo;
+    private LocalDateTime fecha;
+    private int duracionMinutos;
+    private double distanciaKm;
+    private int caloriasQuemadas;
+    private Usuario usuario;
+
+    public enum TipoDeporte {
+        CORRER, NATACION, CICLISMO, FUTBOL, BALONCESTO, VOLLEYBALL, GIMNASIO
+    }
+
+    public ActividadDeportiva(String id, TipoDeporte tipo, int duracionMinutos, 
+                             double distanciaKm, Usuario usuario) {
+        this.id = id;
+        this.tipo = tipo;
+        this.fecha = LocalDateTime.now();
+        this.duracionMinutos = duracionMinutos;
+        this.distanciaKm = distanciaKm;
+        this.usuario = usuario;
+        calcularCalorias();
+    }
+
+    private void calcularCalorias() {
+        // Cálculo simplificado de calorías basado en el tipo de deporte y duración
+        switch (this.tipo) {
+            case CORRER:
+                this.caloriasQuemadas = (int) (duracionMinutos * 10);
+                break;
+            case NATACION:
+                this.caloriasQuemadas = (int) (duracionMinutos * 12);
+                break;
+            case CICLISMO:
+                this.caloriasQuemadas = (int) (duracionMinutos * 8);
+                break;
+            default:
+                this.caloriasQuemadas = (int) (duracionMinutos * 6);
+        }
+    }
+}
+
+// Sistema de gestión de competencias
+ class Competencia {
+    private String id;
+    private String nombre;
+    private TipoDeporte tipoDeporte;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
+    private Map<Usuario, Integer> participantesYPuntos;
+    private EstadoCompetencia estado;
+
+    public enum EstadoCompetencia {
+        REGISTRO, EN_PROGRESO, FINALIZADA
+    }
+
+    public Competencia(String id, String nombre, TipoDeporte tipoDeporte, 
+                      LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        this.id = id;
+        this.nombre = nombre;
+        this.tipoDeporte = tipoDeporte;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.participantesYPuntos = new HashMap<>();
+        this.estado = EstadoCompetencia.REGISTRO;
+    }
+
+    public void registrarParticipante(Usuario usuario) {
+        if (estado == EstadoCompetencia.REGISTRO) {
+            participantesYPuntos.put(usuario, 0);
+            System.out.println(usuario.getNombre() + " registrado en la competencia: " + this.nombre);
+        }
+    }
+
+    public void actualizarPuntuacion(Usuario usuario, int puntos) {
+        if (estado == EstadoCompetencia.EN_PROGRESO) {
+            participantesYPuntos.put(usuario, participantesYPuntos.getOrDefault(usuario, 0) + puntos);
+        }
+    }
+
+    public void finalizarCompetencia() {
+        if (estado == EstadoCompetencia.EN_PROGRESO) {
+            estado = EstadoCompetencia.FINALIZADA;
+            anunciarGanadores();
+        }
+    }
+
+    private void anunciarGanadores() {
+        // Ordenar participantes por puntos
+        List<Map.Entry<Usuario, Integer>> ranking = new ArrayList<>(participantesYPuntos.entrySet());
+        ranking.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
+
+        System.out.println("¡Resultados de la competencia " + this.nombre + "!");
+        for (int i = 0; i < Math.min(3, ranking.size()); i++) {
+            Map.Entry<Usuario, Integer> entrada = ranking.get(i);
+            System.out.println((i + 1) + "° lugar: " + entrada.getKey().getNombre() + 
+                             " con " + entrada.getValue() + " puntos");
+        }
+    }
+}
+
+// Gestor principal del sistema de gamificación
+ class SistemaGamificacion {
+    private List<Usuario> usuarios;
+    private List<Logro> logrosDisponibles;
+    private List<Desafio> desafiosActivos;
+    private List<Competencia> competencias;
+
+    public SistemaGamificacion() {
+        this.usuarios = new ArrayList<>();
+        this.logrosDisponibles = new ArrayList<>();
+        this.desafiosActivos = new ArrayList<>();
+        this.competencias = new ArrayList<>();
+        inicializarLogros();
+    }
+
+    private void inicializarLogros() {
+        // Agregar logros predefinidos
+        logrosDisponibles.add(new Logro("L001", "Primer Kilómetro", 
+            "Completa tu primera actividad de 1 km", 100, Logro.TipoLogro.DISTANCIA));
+        logrosDisponibles.add(new Logro("L002", "Madrugador", 
+            "Completa 5 actividades antes de las 8 AM", 200, Logro.TipoLogro.FRECUENCIA));
+        logrosDisponibles.add(new Logro("L003", "Deportista Social", 
+            "Participa en 3 competencias diferentes", 300, Logro.TipoLogro.SOCIAL));
+    }
+
+    public void registrarActividad(ActividadDeportiva actividad) {
+        // Procesar la actividad y actualizar logros, desafíos y competencias
+        Usuario usuario = actividad.getUsuario();
+        verificarLogros(usuario, actividad);
+        actualizarDesafios(usuario, actividad);
+        actualizarCompetencias(usuario, actividad);
+    }
+
+    private void verificarLogros(Usuario usuario, ActividadDeportiva actividad) {
+        for (Logro logro : logrosDisponibles) {
+            // Implementar lógica de verificación de logros según el tipo
+            // y las condiciones específicas de cada logro
+        }
+    }
+
+    private void actualizarDesafios(Usuario usuario, ActividadDeportiva actividad) {
+        for (Desafio desafio : desafiosActivos) {
+            // Actualizar progreso en desafíos activos
+        }
+    }
+
+    private void actualizarCompetencias(Usuario usuario, ActividadDeportiva actividad) {
+        for (Competencia competencia : competencias) {
+            // Actualizar puntuación en competencias activas
+        }
+    }
+}

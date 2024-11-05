@@ -1,0 +1,128 @@
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel implements MouseListener, MouseMotionListener {
+	private int x1 = 0, x2 = 0, width = 300, height = 200;
+	boolean pintar, r, l, t, b;
+	Rectangle2D linea, linea1, linea2, linea3, linea4;
+	ArrayList<Rectangle2D> lista = new ArrayList<Rectangle2D>();
+
+	public LIenzoDibujo() {
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.yellow);
+
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		if (c > 0) {
+
+			linea = new Rectangle2D.Double(150, 150, width - linea.getX(), height - linea.getY());
+		} else {
+
+			linea = new Rectangle2D.Double(150, 150, width, height);
+		}
+		linea1 = new Rectangle2D.Double(linea.getCenterX() - 15, linea.getY() - 10, 30, 20);
+		linea2 = new Rectangle2D.Double(linea.getMaxX() - 10, linea.getCenterY() - 15, 20, 30);
+		linea3 = new Rectangle2D.Double(linea.getCenterX() - 15, linea.getMaxY() - 10, 30, 20);
+		linea4 = new Rectangle2D.Double(linea.getX() - 10, linea.getCenterY() - 15, 20, 30);
+		if (pintar) {
+
+			g2.draw(linea1);
+			g2.draw(linea2);
+			g2.draw(linea3);
+			g2.draw(linea4);
+			g2.setColor(Color.red);
+		} else {
+			g2.setColor(Color.black);
+		}
+		g2.draw(linea);
+
+	}
+
+	public Rectangle2D Redimencionar() {
+		if (c > 0 && r) {
+
+			return new Rectangle2D.Double(150, 150, width - linea.getX(), height);
+		} else if (c > 0 && r) {
+
+			return new Rectangle2D.Double(150, 150, width, height - linea.getX());
+		} else {
+
+			return new Rectangle2D.Double(150, 150, width, height);
+		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+		if (linea.contains(e.getX(), e.getY()) || ChecarTodos(e.getX(), e.getY())) {
+
+			pintar = true;
+		} else {
+			pintar = false;
+		}
+		repaint();
+	}
+
+	public boolean ChecarTodos(int x, int y) {
+
+		return linea1.contains(x, y) || linea2.contains(x, y) || linea3.contains(x, y) || linea4.contains(x, y);
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+	}
+
+	int c = 0;
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		c++;
+		if (linea2.contains(e.getX(), e.getY())) {
+
+			width = e.getX();
+		}
+		if (linea3.contains(e.getX(), e.getY())) {
+
+			height = e.getY();
+		}
+		repaint();
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
+	}
+}

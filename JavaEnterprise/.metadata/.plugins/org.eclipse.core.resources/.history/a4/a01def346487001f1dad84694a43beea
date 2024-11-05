@@ -1,0 +1,103 @@
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel implements MouseListener, MouseMotionListener {
+	private int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+	boolean pintar;
+	Rectangle2D linea;
+	ArrayList<Rectangle2D> lista = new ArrayList<Rectangle2D>();
+
+	public LIenzoDibujo() {
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.yellow);
+
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+		linea = new Rectangle2D.Double(150, 150, 300, 200);
+		lista.add(new Rectangle2D.Double(linea.getCenterX() - 15, linea.getY() - 10, 30, 20));
+		lista.add(new Rectangle2D.Double(linea.getMaxX() - 10, linea.getCenterY() - 15, 20, 30));
+		lista.add(new Rectangle2D.Double(linea.getCenterX() - 15, linea.getMaxY() - 10, 30, 20));
+		lista.add(new Rectangle2D.Double(linea.getX() - 10, linea.getCenterY() - 15, 20, 30));
+		if (pintar) {
+
+			for (Rectangle2D rectangle2d : lista) {
+				g2.draw(rectangle2d);
+			}
+			g2.setColor(Color.red);
+		} else {
+			g2.setColor(Color.black);
+		}
+		g2.draw(linea);
+
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		for (Rectangle2D rectangle2d : lista) {
+
+			if (linea.contains(e.getX(), e.getY()) && rectangle2d.contains(e.getX(), e.getY())) {
+
+				pintar = true;
+			} else {
+				pintar = false;
+			}
+
+		}
+		repaint();
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		for (Rectangle2D rectangle2d : lista) {
+
+			if (rectangle2d.contains(e.getX(), e.getY())) {
+
+				System.out.println(lista.lastIndexOf(rectangle2d));
+			}
+		}
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
+	}
+}

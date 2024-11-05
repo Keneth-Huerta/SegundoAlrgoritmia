@@ -1,0 +1,259 @@
+// Clase principal para gestionar usuarios
+public class Usuario {
+    private String id;
+    private String nombre;
+    private int nivel;
+    private int puntosTotales;
+    private int experiencia;
+    private List<Logro> logrosObtenidos;
+    private List<Desafio> desafiosActivos;
+
+    public Usuario(String id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nivel = 1;	
+        this.puntosTotales = 0;
+        this.experiencia = 0;
+        this.logrosObtenidos = new ArrayList<>();
+        this.desafiosActivos = new ArrayList<>();
+    }
+
+    public void ganarPuntos(int puntos) {
+        this.puntosTotales += puntos;
+        ganarExperiencia(puntos);
+    }
+
+    public void ganarExperiencia(int exp) {
+        this.experiencia += exp;
+        verificarNivel();
+    }
+
+    private void verificarNivel() {
+        // Cada 1000 puntos de experiencia sube un nivel
+        int nuevoNivel = (this.experiencia / 1000) + 1;
+        if (nuevoNivel > this.nivel) {
+            this.nivel = nuevoNivel;
+            System.out.println("¡Felicidades! Has alcanzado el nivel " + this.nivel);
+        }
+    }
+}
+
+// Clase para gestionar logros
+public class Logro {
+    private String id;
+    private String nombre;
+    private String descripcion;
+    private int puntosRecompensa;
+    private boolean completado;
+    private TipoLogro tipo;
+
+    public enum TipoLogro {
+        DISTANCIA, TIEMPO, FRECUENCIA, SOCIAL, ESPECIAL
+    }
+
+    public Logro(String id, String nombre, String descripcion, int puntosRecompensa, TipoLogro tipo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.puntosRecompensa = puntosRecompensa;
+        this.completado = false;
+        this.tipo = tipo;
+    }
+
+    public void completarLogro() {
+        if (!completado) {
+            this.completado = true;
+            System.out.println("¡Logro desbloqueado: " + this.nombre + "!");
+        }
+    }
+}
+
+// Clase para gestionar desafíos
+public class Desafio {
+    private String id;
+    private String nombre;
+    private String descripcion;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
+    private int puntosRecompensa;
+    private List<Usuario> participantes;
+    private EstadoDesafio estado;
+
+    public enum EstadoDesafio {
+        PENDIENTE, ACTIVO, COMPLETADO, EXPIRADO
+    }
+
+    public Desafio(String id, String nombre, String descripcion, int puntosRecompensa, 
+                   LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.puntosRecompensa = puntosRecompensa;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.participantes = new ArrayList<>();
+        this.estado = EstadoDesafio.PENDIENTE;
+    }
+
+    public void unirseAlDesafio(Usuario usuario) {
+        if (!participantes.contains(usuario)) {
+            participantes.add(usuario);
+            System.out.println(usuario.getNombre() + " se ha unido al desafío: " + this.nombre);
+        }
+    }
+}
+
+// Clase para gestionar actividades deportivas
+public class ActividadDeportiva {
+    private String id;
+    private TipoDeporte tipo;
+    private LocalDateTime fecha;
+    private int duracionMinutos;
+    private double distanciaKm;
+    private int caloriasQuemadas;
+    private Usuario usuario;
+
+    public enum TipoDeporte {
+        CORRER, NATACION, CICLISMO, FUTBOL, BALONCESTO, VOLLEYBALL, GIMNASIO
+    }
+
+    public ActividadDeportiva(String id, TipoDeporte tipo, int duracionMinutos, 
+                             double distanciaKm, Usuario usuario) {
+        this.id = id;
+        this.tipo = tipo;
+        this.fecha = LocalDateTime.now();
+        this.duracionMinutos = duracionMinutos;
+        this.distanciaKm = distanciaKm;
+        this.usuario = usuario;
+        calcularCalorias();
+    }
+
+    private void calcularCalorias() {
+        // Cálculo simplificado de calorías basado en el tipo de deporte y duración
+        switch (this.tipo) {
+            case CORRER:
+                this.caloriasQuemadas = (int) (duracionMinutos * 10);
+                break;
+            case NATACION:
+                this.caloriasQuemadas = (int) (duracionMinutos * 12);
+                break;
+            case CICLISMO:
+                this.caloriasQuemadas = (int) (duracionMinutos * 8);
+                break;
+            default:
+                this.caloriasQuemadas = (int) (duracionMinutos * 6);
+        }
+    }
+}
+
+// Sistema de gestión de competencias
+public class Competencia {
+    private String id;
+    private String nombre;
+    private TipoDeporte tipoDeporte;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
+    private Map<Usuario, Integer> participantesYPuntos;
+    private EstadoCompetencia estado;
+
+    public enum EstadoCompetencia {
+        REGISTRO, EN_PROGRESO, FINALIZADA
+    }
+
+    public Competencia(String id, String nombre, TipoDeporte tipoDeporte, 
+                      LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        this.id = id;
+        this.nombre = nombre;
+        this.tipoDeporte = tipoDeporte;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.participantesYPuntos = new HashMap<>();
+        this.estado = EstadoCompetencia.REGISTRO;
+    }
+
+    public void registrarParticipante(Usuario usuario) {
+        if (estado == EstadoCompetencia.REGISTRO) {
+            participantesYPuntos.put(usuario, 0);
+            System.out.println(usuario.getNombre() + " registrado en la competencia: " + this.nombre);
+        }
+    }
+
+    public void actualizarPuntuacion(Usuario usuario, int puntos) {
+        if (estado == EstadoCompetencia.EN_PROGRESO) {
+            participantesYPuntos.put(usuario, participantesYPuntos.getOrDefault(usuario, 0) + puntos);
+        }
+    }
+
+    public void finalizarCompetencia() {
+        if (estado == EstadoCompetencia.EN_PROGRESO) {
+            estado = EstadoCompetencia.FINALIZADA;
+            anunciarGanadores();
+        }
+    }
+
+    private void anunciarGanadores() {
+        // Ordenar participantes por puntos
+        List<Map.Entry<Usuario, Integer>> ranking = new ArrayList<>(participantesYPuntos.entrySet());
+        ranking.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
+
+        System.out.println("¡Resultados de la competencia " + this.nombre + "!");
+        for (int i = 0; i < Math.min(3, ranking.size()); i++) {
+            Map.Entry<Usuario, Integer> entrada = ranking.get(i);
+            System.out.println((i + 1) + "° lugar: " + entrada.getKey().getNombre() + 
+                             " con " + entrada.getValue() + " puntos");
+        }
+    }
+}
+
+// Gestor principal del sistema de gamificación
+public class SistemaGamificacion {
+    private List<Usuario> usuarios;
+    private List<Logro> logrosDisponibles;
+    private List<Desafio> desafiosActivos;
+    private List<Competencia> competencias;
+
+    public SistemaGamificacion() {
+        this.usuarios = new ArrayList<>();
+        this.logrosDisponibles = new ArrayList<>();
+        this.desafiosActivos = new ArrayList<>();
+        this.competencias = new ArrayList<>();
+        inicializarLogros();
+    }
+
+    private void inicializarLogros() {
+        // Agregar logros predefinidos
+        logrosDisponibles.add(new Logro("L001", "Primer Kilómetro", 
+            "Completa tu primera actividad de 1 km", 100, Logro.TipoLogro.DISTANCIA));
+        logrosDisponibles.add(new Logro("L002", "Madrugador", 
+            "Completa 5 actividades antes de las 8 AM", 200, Logro.TipoLogro.FRECUENCIA));
+        logrosDisponibles.add(new Logro("L003", "Deportista Social", 
+            "Participa en 3 competencias diferentes", 300, Logro.TipoLogro.SOCIAL));
+    }
+
+    public void registrarActividad(ActividadDeportiva actividad) {
+        // Procesar la actividad y actualizar logros, desafíos y competencias
+        Usuario usuario = actividad.getUsuario();
+        verificarLogros(usuario, actividad);
+        actualizarDesafios(usuario, actividad);
+        actualizarCompetencias(usuario, actividad);
+    }
+
+    private void verificarLogros(Usuario usuario, ActividadDeportiva actividad) {
+        for (Logro logro : logrosDisponibles) {
+            // Implementar lógica de verificación de logros según el tipo
+            // y las condiciones específicas de cada logro
+        }
+    }
+
+    private void actualizarDesafios(Usuario usuario, ActividadDeportiva actividad) {
+        for (Desafio desafio : desafiosActivos) {
+            // Actualizar progreso en desafíos activos
+        }
+    }
+
+    private void actualizarCompetencias(Usuario usuario, ActividadDeportiva actividad) {
+        for (Competencia competencia : competencias) {
+            // Actualizar puntuación en competencias activas
+        }
+    }
+}

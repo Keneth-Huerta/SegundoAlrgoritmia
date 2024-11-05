@@ -1,0 +1,164 @@
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel implements MouseListener, MouseMotionListener {
+	private static final long serialVersionUID = -333846733831727351L;
+	private double x = 150, y = 150, width = 300, height = 200;
+	private boolean pintar;
+	private Rectangle2D rectangulo, manija1, manija2, manija3, manija4;
+	private int lastX = -1, lastY = -1, manijaActiva = -1;
+
+	public LIenzoDibujo() {
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.yellow);
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+		rectangulo = new Rectangle2D.Double(x, y, width, height);
+		manija1 = new Rectangle2D.Double(rectangulo.getCenterX() - 15, rectangulo.getY() - 10, 30, 20);
+		manija2 = new Rectangle2D.Double(rectangulo.getMaxX() - 10, rectangulo.getCenterY() - 15, 20, 30);
+		manija3 = new Rectangle2D.Double(rectangulo.getCenterX() - 15, rectangulo.getMaxY() - 10, 30, 20);
+		manija4 = new Rectangle2D.Double(rectangulo.getX() - 10, rectangulo.getCenterY() - 15, 20, 30);
+		if (pintar) {
+
+			g2.draw(manija1);
+			g2.draw(manija2);
+			g2.draw(manija3);
+			g2.draw(manija4);
+			g2.setColor(Color.red);
+		} else {
+			g2.setColor(Color.black);
+		}
+		g2.draw(rectangulo);
+
+	}
+
+	private int obtenerManijaActiva(int x, int y) {
+		if (manija1.contains(x, y)) 
+			return 1;
+		
+		if (manija2.contains(x, y))
+			return 2;
+		if (manija3.contains(x, y))
+			return 3;
+		if (manija4.contains(x, y))
+			return 4;
+		return -1;
+	}
+
+	public void Redimencionar(int dx, int dy) {
+
+		switch (manijaActiva) {
+		case 1: // Arriba
+			y += dy;
+			height -= dy;
+			break;
+		case 2: // Derecha
+			width += dx;
+			break;
+		case 3: // Abajo
+			height += dy;
+			break;
+		case 4: // Izquierda
+			x += dx;
+			width -= dx;
+			break;
+		}
+
+		/*
+		 * if (r) { width += dx; } else if (l) { x += dx; width -= dx; } if (b) { height
+		 * += dy; } else if (t) { y += dy; height -= dy; }
+		 * 
+		 */
+		if (width < 10) {
+			if (manijaActiva == 4)
+				x -= (10 - width);
+			width = 10;
+
+		}
+		if (height < 10) {
+			if (manijaActiva == 1)
+				y -= (10 - height);
+			height = 10;
+
+		}
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+		lastX = e.getX();
+		lastY = e.getY();
+
+		pintar = manijaActiva != -1 || rectangulo.contains(e.getX(), e.getY());
+		repaint();
+	}
+
+	public boolean ChecarTodos(int x, int y) {
+
+		return manija1.contains(x, y) || manija2.contains(x, y) || manija3.contains(x, y) || manija4.contains(x, y);
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		lastX = -1;
+		lastY = -1;
+		manijaActiva = -1;
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		int currentX = e.getX();
+		int currentY = e.getY();
+		manijaActiva = obtenerManijaActiva(e.getX(), e.getY());
+
+		if (lastX != -1 && lastY != -1 && manijaActiva != -1) {
+			int dx = currentX - lastX;
+			int dy = currentY - lastY;
+			Redimencionar(dx, dy);
+
+			// System.out.println(currentY + "-" + lastY + "=" + dy);
+		}
+		lastX = currentX;
+		lastY = currentY;
+		repaint();
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+
+	}
+}

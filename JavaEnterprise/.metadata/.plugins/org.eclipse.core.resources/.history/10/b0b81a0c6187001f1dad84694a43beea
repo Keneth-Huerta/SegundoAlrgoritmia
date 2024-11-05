@@ -1,0 +1,78 @@
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JPanel;
+
+public class LIenzoDibujo extends JPanel implements MouseListener, MouseMotionListener {
+	private int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+	boolean uno;
+	Rectangle2D linea,linea,linea,linea,linea;
+	public LIenzoDibujo() {
+		setLayout(new BorderLayout());
+
+		setPreferredSize(new Dimension(500, 500));
+		setBackground(Color.yellow);
+
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+
+		Rectangle2D linea = new Rectangle2D.Double(x1, y1, x2, y2);
+		Rectangle2D linea1 = new Rectangle2D.Double(x1, y1, x2, y2);
+		Rectangle2D linea2 = new Rectangle2D.Double(x1, y1, x2, y2);
+		Rectangle2D linea3 = new Rectangle2D.Double(x1, y1, x2, y2);
+		Rectangle2D linea4 = new Rectangle2D.Double(x1, y1, x2, y2);
+		g2.setColor(Color.red);
+		g2.draw(linea);
+
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+
+	}
+}
