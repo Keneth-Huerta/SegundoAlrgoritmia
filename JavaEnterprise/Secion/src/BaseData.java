@@ -2,12 +2,13 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class BaseData {
 
-    private String user, pass, path = "", result = "";
-    private boolean cargarC = false;
+    private String user, pass, descri, idC, path = "", result = "";
+    private boolean cargarC = false, clicIdC = false;
 
     public BaseData(String user, String pass) {
 
@@ -22,20 +23,17 @@ public class BaseData {
         }
 
         try {
+            boolean esAdmin = false;
 
             Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost/Basesita", "root", "1420");
             Statement miStatement = miConexion.createStatement();
-            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM usuarios WHERE nombre_usuario = '" + user + "'");
-            if (cargarC && !path.isEmpty()) {
-                System.out.println("funciona");
-                miStatement.execute("load data local infile '" + path + "' into table Cajas fields terminated by ',' lines terminated by '\\n' ignore 1 line ");
-                cargarC = false;
-                System.out.println("cargado");
-            }
+            ResultSet miResultSet = miStatement
+                    .executeQuery("SELECT * FROM usuarios WHERE nombre_usuario = '" + user + "'");
+
             if (miResultSet.next()) {
 
                 String passDB = miResultSet.getString("contrasena");
-                boolean esAdmin = miResultSet.getBoolean("es_administrador");
+                esAdmin = miResultSet.getBoolean("es_administrador");
                 if (pass.equals(passDB)) {
                     result = esAdmin ? "admin" : "user";
                 } else {
@@ -44,18 +42,73 @@ public class BaseData {
             } else {
                 result = "no existe";
             }
-            if (miResultSet != null) {
-                miResultSet.close();
+            if (esAdmin && clicIdC) {
+
+                obtenerDescripcion(miStatement);
             }
-            if (miStatement != null) {
-                miStatement.close();
-            }
-            if (miConexion != null) {
-                miConexion.close();
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public BaseData(String user, String pass, String idC, int cantidad, boolean clicIdC) {
+        this.idC = idC;
+        this.clicIdC = clicIdC;
+        this.user = user;
+        this.pass = pass;
+
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            boolean esAdmin = false;
+
+            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost/Basesita", "root", "1420");
+            Statement miStatement = miConexion.createStatement();
+            ResultSet miResultSet = miStatement
+                    .executeQuery("SELECT * FROM usuarios WHERE nombre_usuario = '" + user + "'");
+
+            if (miResultSet.next()) {
+
+                String passDB = miResultSet.getString("contrasena");
+                esAdmin = miResultSet.getBoolean("es_administrador");
+                if (pass.equals(passDB)) {
+                    result = esAdmin ? "admin" : "user";
+                } else {
+                    result = "incorrecta";
+                }
+            } else {
+                result = "no existe";
+            }
+            if (esAdmin && clicIdC) {
+
+                obtenerDescripcion(miStatement);
+            } else {
+
+                miStatement.executeUpdate("update Cajas set cantidad=" + cantidad + " where id=" + idC);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void obtenerDescripcion(Statement statement) throws SQLException {
+        ResultSet idCaja = statement.executeQuery("select * from Cajas where id = '" + idC + "'");
+        if (idCaja.next()) {
+
+            descri = idCaja.getString("descripcion");
+
+        }
+    }
+
+    public String getDescri() {
+        return descri;
     }
 
     public BaseData(String user, String pass, boolean cargarC, String path) {
@@ -73,9 +126,11 @@ public class BaseData {
 
         try {
 
-            Connection miConexion = DriverManager.getConnection("jdbc:mysql://localhost/Basesita?allowLoadLocalInfile=true", "root", "1420");
+            Connection miConexion = DriverManager
+                    .getConnection("jdbc:mysql://localhost/Basesita?allowLoadLocalInfile=true", "root", "1420");
             Statement miStatement = miConexion.createStatement();
-            ResultSet miResultSet = miStatement.executeQuery("SELECT * FROM usuarios WHERE nombre_usuario = '" + user + "'");
+            ResultSet miResultSet = miStatement
+                    .executeQuery("SELECT * FROM usuarios WHERE nombre_usuario = '" + user + "'");
 
             if (miResultSet.next()) {
 
@@ -91,8 +146,9 @@ public class BaseData {
             }
             if (cargarC && !path.isEmpty()) {
 
-                miStatement.execute("load data local infile '" + path + "' into table Cajas CHARACTER SET utf8 fields terminated by ',' lines terminated by '\\n' ignore 1 lines ");
-                
+                miStatement.execute("load data local infile '" + path
+                        + "' into table Cajas CHARACTER SET utf8 fields terminated by ',' lines terminated by '\\n' ignore 1 lines ");
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,21 +167,4 @@ public class BaseData {
         return result;
     }
 
-    public void CheckPass(String user, String pass, boolean type) {
-
-        if (this.user.equals(user)) {
-            if (this.pass.equals(pass)) {
-
-                if (type) {
-                    result = "admin";
-                } else {
-
-                    result = "user";
-                }
-            } else {
-
-            }
-
-        }
-    }
 }

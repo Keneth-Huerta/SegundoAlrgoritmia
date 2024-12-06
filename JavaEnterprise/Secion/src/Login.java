@@ -91,6 +91,7 @@ public class Login extends javax.swing.JPanel {
             frame.cambiarPanel(Secion.vu);
             lb3.setText("");
         } else if (bd.getResult().equals("admin")) {
+            frame.setSize(284,274);
             frame.getMb().setVisible(true);
             frame.cambiarPanel(Secion.vad);
             lb3.setText("");
