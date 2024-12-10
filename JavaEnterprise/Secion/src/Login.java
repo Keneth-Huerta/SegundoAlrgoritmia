@@ -1,4 +1,6 @@
 
+import javax.swing.DefaultComboBoxModel;
+
 public class Login extends javax.swing.JPanel {
 
     private Secion frame;
@@ -7,6 +9,7 @@ public class Login extends javax.swing.JPanel {
     public Login(Secion frame) {
         this.frame = frame;
         initComponents();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -90,11 +93,16 @@ public class Login extends javax.swing.JPanel {
         if (bd.getResult().equals("user")) {
             frame.cambiarPanel(Secion.vu);
             lb3.setText("");
+            frame.pack();
+            BaseData data = new BaseData(Login.getUser(), Login.getPass(), BaseData.TipoOperacion.OBTENER_DESCRIPCION_CAJA, "Todas", 0,null,null);
+            Secion.vu.productosL = data.getProductos();
+            Secion.vu.productosId = data.getProductosId();
+            Secion.vu.productos.setModel(new DefaultComboBoxModel<>(Secion.vu.productosL));
         } else if (bd.getResult().equals("admin")) {
-            frame.setSize(284,274);
             frame.getMb().setVisible(true);
             frame.cambiarPanel(Secion.vad);
             lb3.setText("");
+            frame.pack();
         } else if (bd.getResult().equals("incorrecta")) {
 
             lb3.setText("                 Contraseña incorrecta");
@@ -111,8 +119,6 @@ public class Login extends javax.swing.JPanel {
     public static String getPass() {
         return pass;
     }
-
-  
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

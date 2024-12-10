@@ -17,11 +17,11 @@ public class Secion extends javax.swing.JFrame {
         setSize(250, 250);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         vp = new Login(this);
         vu = new User(this);
-        vad  = new Admin(this);
+        vad = new Admin(this);
         mb.setVisible(false);
-
         setContentPane(vp);
     }
 
@@ -69,10 +69,9 @@ public class Secion extends javax.swing.JFrame {
         if (file.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
 
             File selection = file.getSelectedFile();
-            BaseData bd = new BaseData(Login.getUser(), Login.getPass(),true,selection.getPath().replace("\\", "//"));
+            BaseData bd = new BaseData(Login.getUser(), Login.getPass(), BaseData.TipoOperacion.CARGAR_ARCHIVO, selection.getPath().replace("\\", "//"), 0, null, null);
             vad.getLb().setText("Archivo cargado");
-            
-           
+
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
